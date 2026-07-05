@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AKSIOMA | Fractals & Complex Dynamics Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html{
+        scroll-behavior: smooth;
+      }
+      body {
+        min-height: 100vh;
+        margin: 0;
+        background-color: #0D0F12;
+        color: #E5E7EB;
+        background-image:
+          linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+      body, p, li, a, input, button {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      h1, h2, h3, h4, .font-mono {
+        font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+      .blueprint-surface {
+        border: 1px solid rgba(255,255,255,0.1);
+        background-color: rgba(13,15,18,0.92);
+      }
+      .calibration-mark::before {
+        content: "+";
+        position: absolute;
+        top: -0.9rem;
+        left: -0.9rem;
+        color: rgba(255,255,255,0.18);
+        font-size: 0.75rem;
+        line-height: 1;
+      }
+      .no-shadow * {
+        box-shadow: none !important;
+      }
+      .dropdown-panel {
+        z-index: 20;
+      }
+    </style>
+  </head>
+  <body class="bg-[#0D0F12] text-slate-100">
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0D0F12]">
+      <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+        <div class="flex items-center gap-2 sm:gap-4">
+          <span class="font-mono text-xs text-[#00F0FF]">[00.1]</span>
+          <a href="index.html" class="font-mono text-sm uppercase tracking-[0.3em] font-bold text-slate-100">Aksioma</a>
+          <span class="font-mono text-[10px] text-slate-500 sm:inline">/ Fractals & Complex Dynamics Explorer</span>
+        </div>
+        <nav class="flex flex-wrap items-center gap-3 text-sm font-mono uppercase tracking-[0.25em] text-slate-300">
+          <a href="index.html#home" class="border border-white/10 px-3 py-2 rounded-none transition hover:border-[#00F0FF]">Home</a>
+          <div class="group relative">
+            <button aria-expanded="false" aria-controls="products-panel" class="dropdown-toggle inline-flex items-center gap-2 border border-white/10 px-3 py-2 rounded-none text-slate-300 transition hover:border-[#00F0FF]">
+              <span class="text-[#00F0FF]">[01]</span> Products
+            </button>
+            <div id="products-panel" class="dropdown-panel invisible absolute left-0 top-full w-52 border border-white/10 bg-[#0D0F12] px-2 py-2 opacity-0 transition duration-200 group-hover:visible group-hover:opacity-100 focus-within:visible focus-within:opacity-100">
+              <a href="dynamical-systems.html" class="block border border-white/10 px-4 py-2 text-sm text-slate-100 transition hover:border-[#00F0FF]">Dynamical Systems</a>
+              <a href="fractals-explorer.html" class="block border border-white/10 px-4 py-2 text-sm text-slate-100 transition hover:border-[#00F0FF]">Fractals Explorer</a>
+              <a href="maze-pathfinding.html" class="block border border-white/10 px-4 py-2 text-sm text-slate-100 transition hover:border-[#00F0FF]">Maze & Pathfinding</a>
+              <a href="sorting-visualizer.html" class="block border border-white/10 px-4 py-2 text-sm text-slate-100 transition hover:border-[#00F0FF]">Sorting Visualizer</a>
+            </div>
+          </div>
+          <a href="aboutme.html" class="border border-white/10 px-3 py-2 rounded-none transition hover:border-[#00F0FF]">About</a>
+          <a href="#contact" class="border border-white/10 px-3 py-2 rounded-none transition hover:border-[#00F0FF]">Contact</a>
+          <a href="sq/fractals-explorer.html" class="border border-white/10 px-3 py-2 rounded-none transition hover:border-[#00F0FF]">Shqip</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="scroll-smooth pt-28">
+      <section class="mx-auto max-w-7xl px-6 pb-20">
+        <div class="relative overflow-hidden border border-white/10 px-8 py-10 blueprint-surface">
+          <span class="absolute -top-3 -left-3 text-sm text-slate-500">+</span>
+          <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+            <div class="space-y-6">
+              <div class="flex items-center gap-2 sm:gap-4">
+                <span class="font-mono text-xs text-[#00F0FF]">[00.1]</span>
+                <a href="index.html" class="font-mono text-sm uppercase tracking-[0.3em] text-slate-100">Aksioma</a>
+                <span class="font-mono text-[10px] text-slate-500 hidden sm:inline">// Fractals Explorer</span>
+              </div>
+              <h1 class="font-mono text-5xl leading-tight text-slate-100">Fractals & Complex Dynamics Explorer</h1>
+              <p class="max-w-3xl text-base leading-8 text-slate-300">A GPU-driven Qt application that renders Mandelbrot, Julia, Multibrot, and Newton fractals with ultra-deep zoom, smooth coloring, and adaptive performance tuning.</p>
+              <div class="flex flex-wrap gap-4">
+                <a href="index.html" class="inline-flex items-center border border-white/10 px-5 py-3 font-mono uppercase tracking-[0.25em] text-[#00F0FF] transition hover:border-[#00F0FF]">Back to portfolio</a>
+                <a href="#details" class="inline-flex items-center border border-white/10 px-5 py-3 font-mono uppercase tracking-[0.25em] text-slate-100 transition hover:border-[#00F0FF]">View details</a>
+              </div>
+            </div>
+            <div class="relative border border-white/10 px-6 py-8 blueprint-surface">
+              <span class="absolute -top-3 -left-3 text-sm text-slate-500">+</span>
+              <img src="images/Newton.png" alt="Fractals Explorer screenshot placeholder" class="w-full object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="details" class="mx-auto max-w-7xl px-6 pb-20">
+        <div class="grid gap-10 lg:grid-cols-[0.95fr_0.85fr]">
+          <div class="space-y-8">
+            <div class="relative border border-white/10 px-8 py-8 blueprint-surface">
+              <span class="absolute -top-3 -left-3 text-sm text-slate-500">+</span>
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs text-[#00F0FF]">[02.1]</span>
+                <span class="text-xs uppercase tracking-[0.4em] text-slate-400">Key Features</span>
+              </div>
+              <div class="grid gap-4 sm:grid-cols-2 text-slate-300">
+                <div class="border border-white/10 p-5">
+                  <p class="font-mono text-xs uppercase tracking-[0.35em] text-[#00F0FF]">GPU computing</p>
+                  <h3 class="mt-3 text-xl font-mono text-slate-100">GPU-Accelerated Rendering</h3>
+                  <p class="mt-3 text-sm leading-6">Uses OpenGL 4.5 fragment shaders for real-time fractal generation and continuous coloring in the viewport.</p>
+                </div>
+                <div class="border border-white/10 p-5">
+                  <p class="font-mono text-xs uppercase tracking-[0.35em] text-[#00F0FF]">z → ∞</p>
+                  <h3 class="mt-3 text-xl font-mono text-slate-100">Multiple Fractal Types</h3>
+                  <p class="mt-3 text-sm leading-6">Includes Mandelbrot, Julia, Multibrot, and Newton fractals with parameter controls for each type.</p>
+                </div>
+                <div class="border border-white/10 p-5">
+                  <p class="font-mono text-xs uppercase tracking-[0.35em] text-[#00F0FF]">ε</p>
+                  <h3 class="mt-3 text-xl font-mono text-slate-100">Deep Zoom Precision</h3>
+                  <p class="mt-3 text-sm leading-6">Zoom depth is managed with high precision and perturbation techniques for extreme detail beyond standard floating-point limits.</p>
+                </div>
+                <div class="border border-white/10 p-5">
+                  <p class="font-mono text-xs uppercase tracking-[0.35em] text-[#00F0FF]">runtime</p>
+                  <h3 class="mt-3 text-xl font-mono text-slate-100">Adaptive Performance</h3>
+                  <p class="mt-3 text-sm leading-6">Automatically adjusts iteration counts during zoom and pan to maintain responsiveness while preserving image quality.</p>
+                </div>
+              </div>
+            </div>
+            <div class="relative border border-white/10 px-8 py-8 blueprint-surface">
+              <span class="absolute -top-3 -left-3 text-sm text-slate-500">+</span>
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs text-[#00F0FF]">[02.2]</span>
+                <span class="text-xs uppercase tracking-[0.4em] text-slate-400">Technical Architecture</span>
+              </div>
+              <div class="space-y-6 text-slate-300">
+                <div>
+                  <h3 class="text-xl font-mono text-slate-100">Qt 6 Interface</h3>
+                  <p class="mt-3 text-sm leading-7">Built with Qt 6 and a QWidget-based UI, the application uses QOpenGLWidget for high-performance fractal rendering and standard Qt controls for parameter editing.</p>
+                </div>
+                <div>
+                  <h3 class="text-xl font-mono text-slate-100">C++ Rendering Pipeline</h3>
+                  <p class="mt-3 text-sm leading-7">The backend is a C++ controller that manages shader state, fractal parameters, and interaction events while dispatching compute work to GPU shaders.</p>
+                </div>
+                <div>
+                  <h3 class="text-xl font-mono text-slate-100">Precision Management</h3>
+                  <p class="mt-3 text-sm leading-7">Employs dual-mode precision with GPU double support and CPU long double fallback, plus perturbation orbits to preserve detail during deep zooms.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <aside class="border border-white/10 px-8 py-8 blueprint-surface">
+            <span class="absolute -top-3 -left-3 text-sm text-slate-500">+</span>
+            <div class="flex items-center gap-3">
+              <span class="font-mono text-xs text-[#00F0FF]">[02.3]</span>
+              <span class="text-xs uppercase tracking-[0.4em] text-slate-400">Product Summary</span>
+            </div>
+            <div class="space-y-6 text-slate-300">
+              <div class="border border-white/10 p-5">
+                <h3 class="text-2xl font-mono text-slate-100">Exploration meets precision</h3>
+                <p class="mt-3 text-sm leading-7">A visualization tool built for creative and technical audiences who want fast, beautiful fractal rendering combined with advanced mathematical control.</p>
+              </div>
+              <div class="border border-white/10 p-5">
+                <p class="font-mono text-xs uppercase tracking-[0.35em] text-[#00F0FF]">output</p>
+                <ul class="mt-4 space-y-3 text-sm text-slate-300">
+                  <li>Four fractal modes with interactive parameter editing</li>
+                  <li>Real-time render updates during pan and zoom</li>
+                  <li>PNG export support for captured views</li>
+                  <li>Context-sensitive help and theme-aware rendering</li>
+                </ul>
+              </div>
+              <div class="border border-white/10 p-5">
+                <p class="font-mono text-xs uppercase tracking-[0.35em] text-[#00F0FF]">interaction</p>
+                <p class="mt-3 text-sm leading-7 text-slate-300">Users can drag to pan, scroll to zoom, and change fractal settings instantly while the GPU maintains fluid rendering performance.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl px-6 pb-24">
+        <div class="border border-white/10 px-8 py-8 blueprint-surface">
+          <div class="flex items-center gap-3">
+            <span class="font-mono text-xs text-[#00F0FF]">[03.0]</span>
+            <span class="text-xs uppercase tracking-[0.4em] text-slate-400">Interesting facts</span>
+          </div>
+          <h2 class="mt-4 font-mono text-3xl text-slate-100">The Mandelbrot set contains infinitely many tiny copies of itself.</h2>
+            <div class="mt-6 border border-white/10 p-6 blueprint-surface overflow-x-auto">
+            <pre class="whitespace-pre-wrap break-words text-sm leading-6 text-slate-100"><code class="language-cpp">// Fractals like Mandelbrot are self-similar: smaller versions appear at many scales.
+// The boundary is infinitely complex, with new detail revealed as you zoom.
+// Julia sets are generated from the same formula but depend on a fixed constant.
+// Fractal rendering reveals mathematics that blend art and chaos.
+</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="mx-auto max-w-7xl px-6 pb-24">
+        <div class="border border-white/10 px-8 py-10 blueprint-surface">
+          <div class="flex items-center gap-3">
+            <span class="font-mono text-xs text-[#00F0FF]">[04.0]</span>
+            <span class="text-xs uppercase tracking-[0.4em] text-slate-400">Let's collaborate</span>
+          </div>
+          <h2 class="mt-4 font-mono text-3xl text-slate-100">Ready to turn complex ideas into polished applications?</h2>
+          <p class="mt-4 max-w-2xl text-base leading-7 text-slate-300">I build Qt C++ desktop software with strong mathematical foundations and immersive visual interfaces. Reach out to discuss research tools, demonstration apps, or portfolio work.</p>
+          <a href="mailto:hello@example.com" class="mt-8 inline-flex border border-white/10 px-6 py-3 font-mono text-sm uppercase tracking-[0.25em] text-[#00F0FF] transition hover:border-[#00F0FF]">Contact via email</a>
+        </div>
+      </section>
+    </main>
+    <script>
+      document.addEventListener('DOMContentLoaded', ()=>{
+        document.querySelectorAll('.dropdown-toggle').forEach(btn=>{
+          const panel = btn.nextElementSibling;
+          if (!panel) return;
+          btn.addEventListener('click', (e)=>{
+            e.preventDefault();
+            const open = panel.classList.contains('visible') && panel.classList.contains('opacity-100');
+            panel.classList.toggle('invisible', open);
+            panel.classList.toggle('opacity-0', open);
+            panel.classList.toggle('visible', !open);
+            panel.classList.toggle('opacity-100', !open);
+            btn.setAttribute('aria-expanded', String(!open));
+          });
+        });
+        document.addEventListener('click', (e)=>{
+          document.querySelectorAll('.dropdown-panel').forEach(panel=>{
+            const toggle = panel.previousElementSibling;
+            if (!toggle) return;
+            if (!panel.contains(e.target) && !toggle.contains(e.target)) {
+              panel.classList.remove('visible','opacity-100');
+              panel.classList.add('invisible','opacity-0');
+              toggle.setAttribute('aria-expanded','false');
+            }
+          });
+        });
+      });
+    </script>
+    <footer class="relative z-10 border-t border-white/10 bg-[#0D0F12] py-10">
+        <div class="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center md:items-center justify-between gap-6 font-mono text-xs text-slate-400">
+          
+          <div class="flex items-center gap-3 sm:gap-4">
+            <span class="text-[#00F0FF] font-bold">[00.0]</span>
+            <span class="uppercase tracking-widest font-bold text-slate-300">Aksioma Core</span>
+            <span class="text-slate-600 hidden sm:inline">// systems_engineering</span>
+          </div>
+          
+          <div class="text-center md:text-right space-y-1 text-slate-500">
+            <div>Built by Albion Berisha</div>
+            <div>Aksioma © 2026</div>
+          </div>
+
+        </div>
+    </footer>
+  </body>
+</html>

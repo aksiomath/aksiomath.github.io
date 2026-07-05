@@ -1,0 +1,142 @@
+# Qt C++ Portfolio Projects
+
+## 1. Dynamical Systems Visualizer
+
+### Key Features
+- **Interactive simulation** of 4 famous chaotic systems: Lorenz Attractor, Rössler System, Van der Pol Oscillator, and Double Pendulum
+- **Real-time 3D/2D visualization** with customizable trail rendering (time-gradient or speed-based coloring)
+- **Poincaré sections** for 3D systems (cross-section analysis of phase space)
+- **Lyapunov exponent tracking** to visualize trajectory divergence and sensitivity to initial conditions
+- **Energy conservation monitoring** (validates numerical accuracy for mechanical systems)
+- **Mathematical overlays** including phase space plots, energy graphs, and system equations rendered as SVG
+
+### Technical Complexities
+- **Runge-Kutta 4th-order (RK4) integration**: Numerically solves nonlinear differential equations with configurable time steps and substeps
+- **Chaos theory implementation**: Accurately demonstrates deterministic but unpredictable long-term behavior
+- **Advanced mathematics**: Implements Lorenz equations, Rössler equations, Van der Pol oscillator dynamics, and double pendulum mechanics
+- **Real-time performance**: 60 FPS rendering with 5000-point trail buffering and dynamic scaling
+- **Multi-mode visualization**: Seamlessly switches between trail rendering, energy graphs, Lyapunov divergence, and phase space analysis
+
+### UI Highlights
+- **System selection cards** with descriptions and visual thumbnails
+- **Keyboard-driven controls** for intuitive interaction (1-4 to switch systems, R to reset, H for help)
+- **Multiple overlay modes** (none, phase space, energy graph, Lyapunov, info)
+- **Color-coded trails** by velocity or time progression
+- **Educational help dialogs** and formula displays
+- **Initial conditions editor** for custom starting points
+- **Grid overlay** for reference and scale understanding
+- **Dark theme** with system-specific accent colors
+
+---
+
+## 2. Fractals & Complex Dynamics Explorer
+
+### Key Features
+- **GPU-accelerated fractal rendering** using OpenGL 4.5 with real-time computation
+- **4 fractal types**: Mandelbrot Set, Julia Set, Multibrot Set (generalized), and Newton Fractal
+- **Deep-zoom capability** with extreme precision (zoom levels beyond $10^{-7}$)
+- **Escape-time algorithm** with smooth iteration coloring for continuous gradients
+- **Perturbation technique** for ultra-deep zooms using high-precision reference orbits
+- **Interactive pan/zoom** with adaptive iteration count for responsiveness
+- **PNG export** for saving fractal explorations
+
+### Technical Complexities
+- **GPU computing**: Fragment shaders implement complex number arithmetic and fractal computations in GLSL 4.5
+- **Precision management**: Dual-mode rendering (GPU doubles + CPU long doubles) to handle precision limits
+- **Perturbation theory**: Binomial perturbation for deep zooms avoiding catastrophic cancellation errors
+- **Newton's method**: Solves polynomial equations ($z^3 - 1 = 0$) to visualize basins of attraction
+- **Shader Buffer Objects (SSBO)**: Stores reference orbits for efficient deep-zoom computation
+- **Adaptive performance tuning**: Automatically adjusts iterations during zoom for smooth interaction
+
+### UI Highlights
+- **Intuitive parameter controls**: Dropdowns for fractal type, spin boxes for complex parameters
+- **Context-sensitive help**: Explanations for each parameter with user-friendly metaphors ("zoom = kaleidoscope")
+- **Visual feedback**: Adaptive zoom with iteration adjustment for instant responsiveness
+- **Control panel organization**: Dynamic visibility (shows parameters only relevant to selected fractal)
+- **Reset view button**: Quick return to default bounds
+- **HSV color mapping**: Smooth, continuous color gradients cycling through spectrum
+- **Dark/light theme support**
+
+---
+
+## 3. Maze & Pathfinding Visualizer
+
+### Key Features
+- **4 maze generation algorithms**: DFS Backtracking, Prim's Algorithm, Kruskal's Algorithm, Wilson's Algorithm
+- **3 pathfinding algorithms**: Breadth-First Search (BFS), Dijkstra's Algorithm, A* Search
+- **Animated visualization** of both maze generation and pathfinding processes
+- **Interactive cell cost system**: Right-click cells to set terrain difficulty (costs: 1, 3, 5)
+- **Visual highlighting**: Distinct colors for visited cells, frontier, path, start/goal
+- **Heatmap overlay**: Shows cell exploration frequency
+- **Seeded RNG** for reproducible maze generation
+- **Step-by-step execution**: Adjustable animation speed with steps-per-tick control
+
+### Technical Complexities
+- **Graph algorithm implementations**: 
+  - BFS guarantees shortest path in unweighted grids
+  - Dijkstra's algorithm handles weighted terrain
+  - A* uses Manhattan distance heuristic for efficient pathfinding
+- **Maze carving techniques**: Stack-based DFS, frontier expansion (Prim's), stochastic wall removal (Kruskal's), loop-erased random walks (Wilson's)
+- **Path reconstruction**: Parent pointer tracking through explored nodes
+- **Dual animation engines**: Independent generators for maze carving and path reveal
+- **Weighted graph traversal**: Supports variable cell costs affecting pathfinding
+
+### UI Highlights
+- **Algorithm selector dropdowns** for both maze generation and pathfinding
+- **Real-time speed controls**: Separate sliders for generation speed and path animation
+- **Interactive canvas**: Left-click to set start/goal, right-click to adjust terrain costs
+- **Visual terrain representation**: Different shades for cell costs (sandy, water-like)
+- **Heatmap overlay** showing exploration patterns
+- **Dark/light mode toggle** with theme-aware colors
+- **Status label** displaying current phase (Generating, Searching, Done)
+- **Glow effects** on start (green) and goal (magenta) points
+- **Grid-based visualization** with dynamic cell sizing
+
+---
+
+## 4. Sorting Algorithms Visualizer
+
+### Key Features
+- **10 sorting algorithms**: Bubble Sort, Insertion Sort, Selection Sort, Quick Sort, Merge Sort, Heap Sort, Shell Sort, Tim Sort, Radix Sort, Gnome Sort
+- **Step-by-step animation** with synchronized pseudocode highlighting
+- **Color-coded visualization**: Algorithm-specific colors for comparisons/operations
+- **Timeline scrubbing**: Drag slider to review any execution step
+- **Multiple array distributions**: Random, Sorted, Reversed, Nearly Sorted (with perturbation control)
+- **Detailed event logging**: Every comparison, swap, and operation documented
+- **Big-O complexity display**: Shows best, average, and worst-case performance
+
+### Technical Complexities
+- **Algorithm-specific state machines**: Each sorting method maintains unique execution state (loop indices, stacks, buffers, gaps)
+- **Non-comparative sorting**: Radix Sort processes digits by place value (O(nk) complexity)
+- **Hybrid algorithms**: Tim Sort combines insertion sort and merge sort for optimal real-world performance
+- **Stack-based recursion simulation**: Iterative implementations of recursive algorithms (Quick Sort, Merge Sort)
+- **History recording system**: Captures complete array state at every step for perfect timeline reconstruction
+- **Algorithm-specific tracking**: Separate state management for merge ranges, heap sizes, gap values, radix phases
+
+### UI Highlights
+- **Algorithm selector** with 10 options
+- **Speed slider** (100-5000 ms per step, adjustable in real-time)
+- **Dual execution modes**: Automatic playback or manual step-by-step
+- **Timeline scrubber** with step counter
+- **Array distribution selector** with custom input field
+- **Perturb slider** for controlled randomization in nearly-sorted arrays
+- **Pseudocode panel** with line-by-line highlighting during execution
+- **Color-coded legend** explaining algorithm-specific colors
+- **Big-O complexity panel** for each algorithm
+- **Detailed event log** documenting every operation
+- **Dark/light theme toggle**
+- **Graphics scene rendering** with dynamic bar heights and colors
+
+---
+
+## Technical Summary
+
+| Aspect | Dynamical Systems | Fractals | Maze Pathfinding | Sorting Visualizer |
+|--------|-------------------|----------|------------------|-------------------|
+| **Framework** | Qt 6 Widgets | Qt 6 + OpenGL 4.5 | Qt 6 Widgets | Qt 6 Widgets |
+| **Language** | C++17 | C++17 | C++17 | C++17 |
+| **Window Size** | 1600×900 | 1200×800 | 1700×960 | Responsive |
+| **Primary Complexity** | Numerical integration | GPU computing | Graph algorithms | State machine mgmt |
+| **Key Math** | ODEs, Chaos, Energy | Complex numbers, Escape-time | Pathfinding heuristics | Sorting algorithms |
+| **Rendering** | Qt 2D/SVG | OpenGL shaders | Qt 2D graphics | QGraphicsView/Scene |
+| **Interactivity** | Keyboard + simulation | Mouse drag/wheel | Mouse clicks + sliders | Sliders + buttons |
