@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Docs | AKSIOMA Knots</title>
+  <meta name="description" content="Reference for AKSIOMA Knots: the .aknot file format, text import, the formula language, exports, how invariants are computed and where data is kept.">
+  <meta name="theme-color" content="#1c1f27">
+  <script>
+    // before anything is painted: dark unless the reader chose light
+    try {
+      if (localStorage.getItem('knots-theme') === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    } catch (e) { /* storage may be closed: stay dark */ }
+  </script>
+  <link rel="icon" href="assets/img/app-icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/knots.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <div class="top-in">
+      <a class="brand" href="knots.html"><svg class="mark" viewBox="10 12 180 172" aria-hidden="true" fill="none" stroke-width="15" stroke-linecap="round"><path stroke="#3557b7" d="M90.0 48.9L87.9 51.2L85.8 53.5L83.8 55.8L81.9 58.3L80.0 60.8L78.2 63.4L76.5 66.0L74.8 68.6L73.2 71.4L71.8 74.1L70.3 76.9L69.0 79.8L67.8 82.6L66.6 85.5L65.6 88.5L64.6 91.4L63.8 94.4L63.0 97.3L62.3 100.3L61.7 103.3L61.2 106.2L60.8 109.2L60.5 112.1L60.3 115.0L60.2 117.9L60.2 120.8L60.3 123.6L60.4 126.4L60.7 129.2L61.1 131.9L61.5 134.6L62.1 137.2L62.7 139.7L63.4 142.2L64.2 144.6L65.1 147.0L66.0 149.3L67.1 151.5L68.2 153.6L69.4 155.6L70.6 157.6L71.9 159.5L73.3 161.2L74.7 162.9L76.2 164.5L77.8 165.9L79.4 167.3L81.0 168.6L82.7 169.7L84.4 170.8L86.2 171.7L87.9 172.5L89.7 173.2L91.6 173.8L93.4 174.3L95.3 174.6L97.2 174.9L99.1 175.0L100.9 175.0L102.8 174.9L104.7 174.6L106.6 174.3L108.4 173.8L110.3 173.2L112.1 172.5L113.8 171.7L115.6 170.8L117.3 169.7L119.0 168.6L120.6 167.3L122.2 165.9L123.8 164.5L125.3 162.9L126.7 161.2L128.1 159.5L129.4 157.6L130.6 155.6L131.8 153.6L132.9 151.5L134.0 149.3L134.9 147.0L135.8 144.6L136.6 142.2L137.3 139.7L137.9 137.2L138.5 134.6L138.9 131.9L139.3 129.2L139.6 126.4L139.7 123.6L139.8 122.7"/><path stroke="#d98a1f" d="M136.2 94.4L135.4 91.4L134.4 88.5L133.4 85.5L132.2 82.6L131.0 79.8L129.7 76.9L128.2 74.1L126.8 71.4L125.2 68.6L123.5 66.0L121.8 63.4L120.0 60.8L118.1 58.3L116.2 55.8L114.2 53.5L112.1 51.2L110.0 48.9L107.8 46.8L105.6 44.7L103.3 42.7L101.0 40.8L98.7 39.0L96.3 37.3L93.8 35.6L91.4 34.1L88.9 32.6L86.4 31.3L83.9 30.0L81.4 28.9L78.8 27.8L76.3 26.9L73.8 26.1L71.3 25.3L68.7 24.7L66.2 24.2L63.8 23.8L61.3 23.4L58.9 23.2L56.5 23.1L54.1 23.1L51.8 23.2L49.6 23.5L47.3 23.8L45.2 24.2L43.1 24.7L41.0 25.3L39.0 26.0L37.1 26.8L35.3 27.6L33.5 28.6L31.8 29.7L30.2 30.8L28.7 32.0L27.3 33.3L26.0 34.7L24.7 36.1L23.6 37.6L22.5 39.2L21.6 40.8L20.8 42.5L20.0 44.3L19.4 46.1L18.9 47.9L18.5 49.8L18.2 51.7L18.0 53.6L17.9 55.6L18.0 57.6L18.1 59.7L18.4 61.7L18.8 63.8L19.3 65.9L19.9 67.9L20.6 70.0L21.5 72.1L22.4 74.2L23.5 76.2L24.7 78.3L26.0 80.3L27.4 82.3L28.8 84.2L30.4 86.2L32.2 88.1L34.0 89.9L35.8 91.8L37.8 93.5L39.9 95.3L42.1 96.9L44.3 98.5L46.7 100.1L47.5 100.6"/><path stroke="#1f8a78" d="M73.8 111.7L76.8 112.4L79.8 113.1L82.9 113.6L85.9 114.1L89.0 114.4L92.2 114.7L95.3 114.9L98.4 115.0L101.6 115.0L104.7 114.9L107.8 114.7L111.0 114.4L114.1 114.1L117.1 113.6L120.2 113.1L123.2 112.4L126.2 111.7L129.2 110.9L132.1 110.0L135.0 109.0L137.8 108.0L140.5 106.9L143.2 105.6L145.8 104.4L148.4 103.0L150.9 101.6L153.3 100.1L155.7 98.5L157.9 96.9L160.1 95.3L162.2 93.5L164.2 91.8L166.0 89.9L167.8 88.1L169.6 86.2L171.2 84.2L172.6 82.3L174.0 80.3L175.3 78.3L176.5 76.2L177.6 74.2L178.5 72.1L179.4 70.0L180.1 67.9L180.7 65.9L181.2 63.8L181.6 61.7L181.9 59.7L182.0 57.6L182.1 55.6L182.0 53.6L181.8 51.7L181.5 49.8L181.1 47.9L180.6 46.1L180.0 44.3L179.2 42.5L178.4 40.8L177.5 39.2L176.4 37.6L175.3 36.1L174.0 34.7L172.7 33.3L171.3 32.0L169.8 30.8L168.2 29.7L166.5 28.6L164.7 27.6L162.9 26.8L161.0 26.0L159.0 25.3L156.9 24.7L154.8 24.2L152.7 23.8L150.4 23.5L148.2 23.2L145.9 23.1L143.5 23.1L141.1 23.2L138.7 23.4L136.2 23.8L133.8 24.2L131.3 24.7L128.7 25.3L126.2 26.1L123.7 26.9L121.2 27.8L118.6 28.9L116.1 30.0L113.6 31.3L112.8 31.7"/></svg><span>AKSIOMA <i>Knots</i></span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="knots.html">Introduction</a>
+        <a href="manual.html">Manual</a>
+        <a href="docs.html" aria-current="page">Docs</a>
+        <a href="knots.html#obtain">Download</a>
+      </nav>
+      <button class="theme-btn" type="button" hidden>
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3 7 7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="doc-title">
+    <h1>Docs</h1>
+    <p>Files, formulas and methods of AKSIOMA Knots 1.0.0. Use of the program is described in the <a href="manual.html">manual</a>.</p>
+  </div>
+
+  <div class="doc">
+    <aside class="toc" aria-label="Contents">
+      <button type="button" class="btn btn-small toc-toggle" aria-expanded="false">Contents</button>
+      <div class="toc-body">
+        <label for="q">Search the docs</label>
+        <input id="q" type="search" placeholder="aknot, atan2, svg..." autocomplete="off">
+        <p class="none" hidden>No section mentions that.</p>
+        <ol>
+          <li><a href="#aknot">The .aknot file</a></li>
+          <li><a href="#text">Text and CSV import</a></li>
+          <li><a href="#formulas">Formula reference</a></li>
+          <li><a href="#exports">Exports</a></li>
+          <li><a href="#invariants">How invariants are found</a></li>
+          <li><a href="#data">Knot data and conventions</a></li>
+          <li><a href="#computer">On your computer</a></li>
+          <li><a href="#licence">Source and licence</a></li>
+        </ol>
+      </div>
+    </aside>
+
+    <main class="article" id="main">
+
+      <section id="aknot">
+        <h2>The .aknot file</h2>
+        <p>An <code>.aknot</code> file is indented JSON in UTF-8. It stores a knot twice: as a <strong>recipe</strong> (which knot, with which settings) and as the <strong>points</strong> of the curve that was on screen. You can read it in any text editor.</p>
+<pre><code>{
+  "format": "AKSIOMA Knots",
+  "version": 1,
+  "name": "Trefoil Knot",
+  "knot": { "type": "trefoil", "p": 3, "q": 2, "table": "", "custom": "" },
+  "shapeChanged": false,
+  "points": [ [0.391, -0.978, -0.233], [0.196, -0.995, -0.118] ],
+  "appearance": {
+    "thickness": 0.16,
+    "samples": 160,
+    "material": 3,
+    "shine": 0.0,
+    "colorMode": 0,
+    "color": "#bab9b4"
+  }
+}</code></pre>
+        <p>The program writes the keys in alphabetical order, one number per line. Order does not matter when reading. The list of points above is shortened.</p>
+
+        <h3>Top level</h3>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Key</th><th>Type</th><th>Meaning</th></tr>
+            <tr><td><code>format</code></td><td>string</td><td>Must be <code>"AKSIOMA Knots"</code>.</td></tr>
+            <tr><td><code>version</code></td><td>number</td><td>Format version, now 1.</td></tr>
+            <tr><td><code>name</code></td><td>string</td><td>Title of the knot. If missing, the file name is used.</td></tr>
+            <tr><td><code>knot</code></td><td>object</td><td>The recipe.</td></tr>
+            <tr><td><code>shapeChanged</code></td><td>boolean</td><td>The curve was moved by Relax or Scramble, so the points describe the shape.</td></tr>
+            <tr><td><code>points</code></td><td>array</td><td><code>[x, y, z]</code> groups. Groups of another length, or with values that are not finite, are skipped. For structures of several strands, the first strand.</td></tr>
+            <tr><td><code>appearance</code></td><td>object</td><td>Optional. If missing, the current look is kept.</td></tr>
+          </table>
+        </div>
+
+        <h3>The recipe: <code>knot</code></h3>
+        <div class="table-wrap">
+          <table>
+            <tr><th>type</th><th>Knot</th><th>Extra keys used</th></tr>
+            <tr><td><code>unknot</code></td><td>Plain circle</td><td></td></tr>
+            <tr><td><code>trefoil</code></td><td>3₁</td><td></td></tr>
+            <tr><td><code>figure-eight</code></td><td>4₁</td><td></td></tr>
+            <tr><td><code>cinquefoil</code></td><td>5₁</td><td></td></tr>
+            <tr><td><code>stevedore</code></td><td>6₁</td><td></td></tr>
+            <tr><td><code>dna</code></td><td>DNA double helix</td><td></td></tr>
+            <tr><td><code>celtic</code></td><td>Celtic armor</td><td></td></tr>
+            <tr><td><code>torus</code></td><td>T(p,q)</td><td><code>p</code>, <code>q</code>, kept between 1 and 20</td></tr>
+            <tr><td><code>table</code></td><td>A knot from the table</td><td><code>table</code>, the KnotInfo name such as <code>8_19</code></td></tr>
+            <tr><td><code>custom</code></td><td>Your own curve</td><td><code>custom</code>, the formula or point text as typed</td></tr>
+          </table>
+        </div>
+        <p>These words are the same in the English and Albanian program.</p>
+
+        <h3>The look: <code>appearance</code></h3>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Key</th><th>Range</th><th>Meaning</th></tr>
+            <tr><td><code>thickness</code></td><td>0.02 – 0.60</td><td>Tube radius. Default 0.16.</td></tr>
+            <tr><td><code>samples</code></td><td>48 – 320</td><td>Curve density. Default 160.</td></tr>
+            <tr><td><code>material</code></td><td>0 – 3</td><td>0 Glossy, 1 Satin, 2 Metal, 3 Rope.</td></tr>
+            <tr><td><code>shine</code></td><td>0.0 – 1.0</td><td>Material shine.</td></tr>
+            <tr><td><code>colorMode</code></td><td>0 – 2</td><td>0 Single, 1 Crossing, 2 Strand colours.</td></tr>
+            <tr><td><code>color</code></td><td><code>#rrggbb</code></td><td>Tube colour.</td></tr>
+          </table>
+        </div>
+
+        <h3>Which copy wins when opening</h3>
+        <ul>
+          <li>Normally the <strong>recipe</strong>: the knot is rebuilt cleanly and keeps everything the program knows about it.</li>
+          <li>If <code>shapeChanged</code> is true, the knot takes the saved shape, point for point, and keeps its name.</li>
+          <li>If the <code>type</code> or the table name is unknown, the <strong>points</strong> open as a custom curve.</li>
+        </ul>
+        <p>Saving is safe: the file is written aside and swapped in only when complete, so a crash cannot leave half a file.</p>
+
+        <h3>Errors</h3>
+        <div class="table-wrap">
+          <table class="wrap-first">
+            <tr><th>Message</th><th>Cause</th></tr>
+            <tr><td>The file is damaged (…)</td><td>An <code>.aknot</code> file that is not valid JSON.</td></tr>
+            <tr><td>This is not an AKSIOMA Knots file.</td><td><code>format</code> is missing or different.</td></tr>
+            <tr><td>The file was saved by a newer version of AKSIOMA Knots.</td><td><code>version</code> is higher than the program knows.</td></tr>
+            <tr><td>The file contains no curve.</td><td>The points are needed and there are fewer than three.</td></tr>
+          </table>
+        </div>
+
+        <h3>Reading one in Python</h3>
+<pre><code>import json
+
+with open("Trefoil Knot.aknot", encoding="utf-8") as f:
+    knot = json.load(f)
+
+assert knot["format"] == "AKSIOMA Knots"
+xs, ys, zs = zip(*knot["points"])
+print(knot["name"], knot["knot"]["type"], len(xs), "points")</code></pre>
+      </section>
+
+      <section id="text">
+        <h2>Text and CSV import</h2>
+        <p><em>Open</em>, and dragging onto the window, also take <code>.txt</code> and <code>.csv</code> files. The result is a custom curve named after the file.</p>
+        <ul>
+          <li>If the text contains an <code>=</code> sign it is read as a <a href="#formulas">formula</a>.</li>
+          <li>Otherwise only lines that start like a number are read, so headers and <code>#</code> comments are skipped.</li>
+          <li>Each line holds three numbers separated by commas or spaces. Round and square brackets are ignored.</li>
+          <li>At least three points are needed. The last is joined back to the first.</li>
+          <li>If the file has several <code># component</code> blocks, only the first is opened, with a notice.</li>
+        </ul>
+<pre><code># exported from a script
+x, y, z
+1.000, 0.000,  0.000
+0.309, 0.951,  0.250
+(-0.809, 0.588, 0.000)
+-0.809 -0.588 -0.250</code></pre>
+        <p>A curve smaller than 0.25 or larger than 25 units in radius is scaled to a comfortable size.</p>
+      </section>
+
+      <section id="formulas">
+        <h2>Formula reference</h2>
+        <p>Define <code>x</code>, <code>y</code> and <code>z</code> in the variable <code>t</code>, which runs from 0 to 2π. Separate them with new lines or semicolons.</p>
+<pre><code>x = (2 + cos(2t)) cos(3t)
+y = (2 + cos(2t)) sin(3t)
+z = sin(4t)</code></pre>
+
+        <h3>Operators and notation</h3>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Written</th><th>Meaning</th></tr>
+            <tr><td><code>+ - * /</code></td><td>The usual four.</td></tr>
+            <tr><td><code>2t</code>, <code>sin(t)cos(t)</code></td><td>Side by side means multiply.</td></tr>
+            <tr><td><code>a^b</code></td><td>Power, read right to left: <code>2^3^2</code> is 512, and <code>-2^2</code> is −4.</td></tr>
+            <tr><td><code>.5</code>, <code>1e-3</code></td><td>Numbers use a decimal point, never a comma.</td></tr>
+            <tr><td><code>π × − ÷ √ x²</code></td><td>Printed symbols are read as well.</td></tr>
+          </table>
+        </div>
+
+        <h3>Constants</h3>
+        <p><code>pi</code>, <code>tau</code>, <code>e</code></p>
+
+        <h3>Functions</h3>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Group</th><th>Names</th></tr>
+            <tr><td>Trigonometric</td><td><code>sin cos tan sec csc cot asin acos atan atan2(y, x)</code></td></tr>
+            <tr><td>Hyperbolic</td><td><code>sinh cosh tanh asinh acosh atanh</code></td></tr>
+            <tr><td>Powers and logs</td><td><code>exp ln log log10 log2 sqrt cbrt pow(a, b) hypot(a, b)</code></td></tr>
+            <tr><td>Rounding and pieces</td><td><code>abs sign step floor ceil round trunc mod(a, b) min(a, b) max(a, b) clamp(x, lo, hi)</code></td></tr>
+          </table>
+        </div>
+        <p><code>log</code> is the natural logarithm, the same as <code>ln</code>.</p>
+
+        <h3>Limits and errors</h3>
+        <ul>
+          <li>Each formula may be up to 4000 characters.</li>
+          <li>The program names the failing line: an unknown name, a comma in a number, a place it could not read, or a value that does not exist (division by zero, root or logarithm outside its range).</li>
+          <li>A curve that does not come back to its start has its ends joined with a straight piece, which becomes part of the knot, and the program says so.</li>
+        </ul>
+      </section>
+
+      <section id="exports">
+        <h2>Exports</h2>
+        <div class="table-wrap">
+          <table class="wrap-first">
+            <tr><th>Export</th><th>Format</th></tr>
+            <tr><td>3D picture <br><kbd>Ctrl</kbd> <kbd>E</kbd></td><td>PNG or JPEG (quality 92) of the view as shown, at the view's size, without transparency. In Photo mode the program first waits for the picture to finish.</td></tr>
+            <tr><td>Knot diagram <br><kbd>Ctrl</kbd> <kbd>D</kbd></td><td>Black on white, with gaps at under-crossings. SVG (800 × 800 units) or PNG (2000 × 2000 pixels). Needs one closed curve.</td></tr>
+            <tr><td>Coordinates</td><td>TXT with one <code>x, y, z</code> per line (six decimals), or CSV with a header. Links add <code># component N</code> lines in TXT and a <code>component</code> column in CSV.</td></tr>
+            <tr><td>Analysis report</td><td>UTF-8 text: name, classification, polynomials, determinant, tricolourability, properties, writhe, crossing counts, number of points and the method used.</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <section id="invariants">
+        <h2>How invariants are found</h2>
+        <p>Where a value comes from depends on where the curve came from. The note under the polynomials in the program always says which case applies.</p>
+        <div class="table-wrap">
+          <table class="wrap-first">
+            <tr><th>Curve</th><th>Source of the values</th></tr>
+            <tr><td>Built-in presets and torus knots</td><td>Exact values for the knot type.</td></tr>
+            <tr><td>Knot table</td><td>Values from KnotInfo.</td></tr>
+            <tr><td>Custom, drawn, joined or retied curves</td><td>Computed from the curve, as below.</td></tr>
+            <tr><td>Several strands</td><td>Gauss linking numbers. Polynomials of links are not computed.</td></tr>
+          </table>
+        </div>
+        <ul>
+          <li><strong>Alexander polynomial</strong>: computed exactly by Fox calculus from a projection of the curve, and checked on a second projection when possible.</li>
+          <li><strong>Jones polynomial</strong>: from the Kauffman bracket, when a projection with at most 24 crossings is found.</li>
+          <li><strong>Identification</strong>: the knot is looked up among all prime knots with up to 13 crossings and composite knots with up to 8. A knot with more crossings can share both polynomials, so the answer starts with "Probably".</li>
+          <li><strong>Writhe</strong> and crossing counts are measured on the 3D curve and depend on its shape.</li>
+          <li><strong>Determinant</strong> is |Δ(−1)|. A knot can be tricoloured exactly when 3 divides it.</li>
+        </ul>
+        <p>Without a Jones polynomial, mirror images are not told apart.</p>
+      </section>
+
+      <section id="data">
+        <h2>Knot data and conventions</h2>
+        <p>The table holds the 12,965 prime knots with up to 13 crossings, with their 3D shapes, names and invariants, from <a href="https://knotinfo.math.indiana.edu/" rel="noopener">KnotInfo</a>:</p>
+        <p>C. Livingston and A. H. Moore, <em>KnotInfo: Table of Knot Invariants</em>, retrieved October 24, 2026.</p>
+        <ul>
+          <li>Names follow KnotInfo: <code>8_19</code>, and from 11 crossings <code>11a_367</code> (alternating) or <code>11n_34</code> (non-alternating). Search accepts <code>11n34</code> too.</li>
+          <li>Torus knots T(p,q) with positive p and q are the positive ones.</li>
+          <li>The right-handed trefoil has Jones polynomial −t⁴ + t³ + t.</li>
+          <li>On a Seifert surface, amber is the side from which a Seifert circle runs anticlockwise. The matrix entry V[i][j] is the linking number of loop i with loop j lifted off the amber side.</li>
+        </ul>
+      </section>
+
+      <section id="computer">
+        <h2>On your computer</h2>
+        <p>The program works offline. These are the places it writes to.</p>
+        <div class="table-wrap">
+          <table class="wrap-first">
+            <tr><th>Place</th><th>Contents</th></tr>
+            <tr><td><code>%LOCALAPPDATA%\AKSIOMA\AKSIOMA Knots</code></td><td>Autosaved work, discarded recoveries (kept for 7 days), a cache and <code>aksioma.log</code>, which starts again once it passes 1 MB.</td></tr>
+            <tr><td><code>HKCU\Software\AKSIOMA\AKSIOMA Knots</code></td><td>Settings, window layout and recent files.</td></tr>
+            <tr><td><code>HKCU\Software\Classes\.aknot</code> and <code>…\AKSIOMA.Knot</code></td><td>The file type, its icon and the open command.</td></tr>
+          </table>
+        </div>
+        <p>The program renews the file type at every start, so if you keep two copies, <code>.aknot</code> files open in the one you started last.</p>
+      </section>
+
+      <section id="licence">
+        <h2>Source and licence</h2>
+        <p>AKSIOMA Knots is free software under the <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="noopener">GNU General Public License v3</a>, with no warranty. Its source is on <a href="https://github.com/Albionn1/AKSIOMA-Knots" rel="noopener">GitHub</a>.</p>
+        <p>It uses Qt (LGPL v3), the MinGW-w64 runtime, knot data from KnotInfo, and rooms and textures from <a href="https://polyhaven.com/" rel="noopener">Poly Haven</a> (CC0). The installed program includes the full notices in <code>THIRD_PARTY_NOTICES.txt</code>.</p>
+        <p>These pages are set in Libertinus (<a href="assets/fonts/OFL-libertinus.txt">SIL Open Font License</a>), with headings in Latin Modern, the successor of Computer Modern (<a href="assets/fonts/GUST-FONT-LICENSE.txt">GUST Font License</a>).</p>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="foot">
+    <div>
+      <p>AKSIOMA Knots, Copyright © 2026 AKSIOMA, GNU GPL v3. <a href="knots.html">Overview</a> · <a href="manual.html">Manual</a> · <a href="../index.html">AKSIOMA home</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/knots.js"></script>
+</body>
+</html>
