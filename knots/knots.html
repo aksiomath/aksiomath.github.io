@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AKSIOMA Knots: an interactive laboratory for knot theory</title>
+  <meta name="description" content="AKSIOMA Knots is a free Windows program for knot theory: 12,965 prime knots, invariants, unknotting, connected sums, Seifert surfaces and exercises, in English and Albanian.">
+  <meta name="theme-color" content="#1c1f27">
+  <script>
+    // before anything is painted: dark unless the reader chose light
+    try {
+      if (localStorage.getItem('knots-theme') === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    } catch (e) { /* storage may be closed: stay dark */ }
+  </script>
+  <link rel="icon" href="assets/img/app-icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/knots.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <div class="top-in">
+      <a class="brand" href="knots.html"><svg class="mark" viewBox="10 12 180 172" aria-hidden="true" fill="none" stroke-width="15" stroke-linecap="round"><path stroke="#3557b7" d="M90.0 48.9L87.9 51.2L85.8 53.5L83.8 55.8L81.9 58.3L80.0 60.8L78.2 63.4L76.5 66.0L74.8 68.6L73.2 71.4L71.8 74.1L70.3 76.9L69.0 79.8L67.8 82.6L66.6 85.5L65.6 88.5L64.6 91.4L63.8 94.4L63.0 97.3L62.3 100.3L61.7 103.3L61.2 106.2L60.8 109.2L60.5 112.1L60.3 115.0L60.2 117.9L60.2 120.8L60.3 123.6L60.4 126.4L60.7 129.2L61.1 131.9L61.5 134.6L62.1 137.2L62.7 139.7L63.4 142.2L64.2 144.6L65.1 147.0L66.0 149.3L67.1 151.5L68.2 153.6L69.4 155.6L70.6 157.6L71.9 159.5L73.3 161.2L74.7 162.9L76.2 164.5L77.8 165.9L79.4 167.3L81.0 168.6L82.7 169.7L84.4 170.8L86.2 171.7L87.9 172.5L89.7 173.2L91.6 173.8L93.4 174.3L95.3 174.6L97.2 174.9L99.1 175.0L100.9 175.0L102.8 174.9L104.7 174.6L106.6 174.3L108.4 173.8L110.3 173.2L112.1 172.5L113.8 171.7L115.6 170.8L117.3 169.7L119.0 168.6L120.6 167.3L122.2 165.9L123.8 164.5L125.3 162.9L126.7 161.2L128.1 159.5L129.4 157.6L130.6 155.6L131.8 153.6L132.9 151.5L134.0 149.3L134.9 147.0L135.8 144.6L136.6 142.2L137.3 139.7L137.9 137.2L138.5 134.6L138.9 131.9L139.3 129.2L139.6 126.4L139.7 123.6L139.8 122.7"/><path stroke="#d98a1f" d="M136.2 94.4L135.4 91.4L134.4 88.5L133.4 85.5L132.2 82.6L131.0 79.8L129.7 76.9L128.2 74.1L126.8 71.4L125.2 68.6L123.5 66.0L121.8 63.4L120.0 60.8L118.1 58.3L116.2 55.8L114.2 53.5L112.1 51.2L110.0 48.9L107.8 46.8L105.6 44.7L103.3 42.7L101.0 40.8L98.7 39.0L96.3 37.3L93.8 35.6L91.4 34.1L88.9 32.6L86.4 31.3L83.9 30.0L81.4 28.9L78.8 27.8L76.3 26.9L73.8 26.1L71.3 25.3L68.7 24.7L66.2 24.2L63.8 23.8L61.3 23.4L58.9 23.2L56.5 23.1L54.1 23.1L51.8 23.2L49.6 23.5L47.3 23.8L45.2 24.2L43.1 24.7L41.0 25.3L39.0 26.0L37.1 26.8L35.3 27.6L33.5 28.6L31.8 29.7L30.2 30.8L28.7 32.0L27.3 33.3L26.0 34.7L24.7 36.1L23.6 37.6L22.5 39.2L21.6 40.8L20.8 42.5L20.0 44.3L19.4 46.1L18.9 47.9L18.5 49.8L18.2 51.7L18.0 53.6L17.9 55.6L18.0 57.6L18.1 59.7L18.4 61.7L18.8 63.8L19.3 65.9L19.9 67.9L20.6 70.0L21.5 72.1L22.4 74.2L23.5 76.2L24.7 78.3L26.0 80.3L27.4 82.3L28.8 84.2L30.4 86.2L32.2 88.1L34.0 89.9L35.8 91.8L37.8 93.5L39.9 95.3L42.1 96.9L44.3 98.5L46.7 100.1L47.5 100.6"/><path stroke="#1f8a78" d="M73.8 111.7L76.8 112.4L79.8 113.1L82.9 113.6L85.9 114.1L89.0 114.4L92.2 114.7L95.3 114.9L98.4 115.0L101.6 115.0L104.7 114.9L107.8 114.7L111.0 114.4L114.1 114.1L117.1 113.6L120.2 113.1L123.2 112.4L126.2 111.7L129.2 110.9L132.1 110.0L135.0 109.0L137.8 108.0L140.5 106.9L143.2 105.6L145.8 104.4L148.4 103.0L150.9 101.6L153.3 100.1L155.7 98.5L157.9 96.9L160.1 95.3L162.2 93.5L164.2 91.8L166.0 89.9L167.8 88.1L169.6 86.2L171.2 84.2L172.6 82.3L174.0 80.3L175.3 78.3L176.5 76.2L177.6 74.2L178.5 72.1L179.4 70.0L180.1 67.9L180.7 65.9L181.2 63.8L181.6 61.7L181.9 59.7L182.0 57.6L182.1 55.6L182.0 53.6L181.8 51.7L181.5 49.8L181.1 47.9L180.6 46.1L180.0 44.3L179.2 42.5L178.4 40.8L177.5 39.2L176.4 37.6L175.3 36.1L174.0 34.7L172.7 33.3L171.3 32.0L169.8 30.8L168.2 29.7L166.5 28.6L164.7 27.6L162.9 26.8L161.0 26.0L159.0 25.3L156.9 24.7L154.8 24.2L152.7 23.8L150.4 23.5L148.2 23.2L145.9 23.1L143.5 23.1L141.1 23.2L138.7 23.4L136.2 23.8L133.8 24.2L131.3 24.7L128.7 25.3L126.2 26.1L123.7 26.9L121.2 27.8L118.6 28.9L116.1 30.0L113.6 31.3L112.8 31.7"/></svg><span>AKSIOMA <i>Knots</i></span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="knots.html" aria-current="page">Introduction</a>
+        <a href="manual.html">Manual</a>
+        <a href="docs.html">Docs</a>
+        <a href="#obtain">Download</a>
+      </nav>
+      <button class="theme-btn" type="button" hidden>
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3 7 7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" class="paper">
+
+    <div class="title">
+      <svg class="frontis" viewBox="10 12 180 172" aria-hidden="true" fill="none" stroke-width="6" stroke-linecap="round"><path stroke="#3557b7" d="M94.4 44.7L92.2 46.8L90.0 48.9L87.9 51.2L85.8 53.5L83.8 55.8L81.9 58.3L80.0 60.8L78.2 63.4L76.5 66.0L74.8 68.6L73.2 71.4L71.8 74.1L70.3 76.9L69.0 79.8L67.8 82.6L66.6 85.5L65.6 88.5L64.6 91.4L63.8 94.4L63.0 97.3L62.3 100.3L61.7 103.3L61.2 106.2L60.8 109.2L60.5 112.1L60.3 115.0L60.2 117.9L60.2 120.8L60.3 123.6L60.4 126.4L60.7 129.2L61.1 131.9L61.5 134.6L62.1 137.2L62.7 139.7L63.4 142.2L64.2 144.6L65.1 147.0L66.0 149.3L67.1 151.5L68.2 153.6L69.4 155.6L70.6 157.6L71.9 159.5L73.3 161.2L74.7 162.9L76.2 164.5L77.8 165.9L79.4 167.3L81.0 168.6L82.7 169.7L84.4 170.8L86.2 171.7L87.9 172.5L89.7 173.2L91.6 173.8L93.4 174.3L95.3 174.6L97.2 174.9L99.1 175.0L100.9 175.0L102.8 174.9L104.7 174.6L106.6 174.3L108.4 173.8L110.3 173.2L112.1 172.5L113.8 171.7L115.6 170.8L117.3 169.7L119.0 168.6L120.6 167.3L122.2 165.9L123.8 164.5L125.3 162.9L126.7 161.2L128.1 159.5L129.4 157.6L130.6 155.6L131.8 153.6L132.9 151.5L134.0 149.3L134.9 147.0L135.8 144.6L136.6 142.2L137.3 139.7L137.9 137.2L138.5 134.6L138.9 131.9L139.3 129.2L139.6 126.4L139.7 123.6L139.8 120.8L139.8 117.9L139.7 116.0"/><path stroke="#d98a1f" d="M137.7 100.3L137.0 97.3L136.2 94.4L135.4 91.4L134.4 88.5L133.4 85.5L132.2 82.6L131.0 79.8L129.7 76.9L128.2 74.1L126.8 71.4L125.2 68.6L123.5 66.0L121.8 63.4L120.0 60.8L118.1 58.3L116.2 55.8L114.2 53.5L112.1 51.2L110.0 48.9L107.8 46.8L105.6 44.7L103.3 42.7L101.0 40.8L98.7 39.0L96.3 37.3L93.8 35.6L91.4 34.1L88.9 32.6L86.4 31.3L83.9 30.0L81.4 28.9L78.8 27.8L76.3 26.9L73.8 26.1L71.3 25.3L68.7 24.7L66.2 24.2L63.8 23.8L61.3 23.4L58.9 23.2L56.5 23.1L54.1 23.1L51.8 23.2L49.6 23.5L47.3 23.8L45.2 24.2L43.1 24.7L41.0 25.3L39.0 26.0L37.1 26.8L35.3 27.6L33.5 28.6L31.8 29.7L30.2 30.8L28.7 32.0L27.3 33.3L26.0 34.7L24.7 36.1L23.6 37.6L22.5 39.2L21.6 40.8L20.8 42.5L20.0 44.3L19.4 46.1L18.9 47.9L18.5 49.8L18.2 51.7L18.0 53.6L17.9 55.6L18.0 57.6L18.1 59.7L18.4 61.7L18.8 63.8L19.3 65.9L19.9 67.9L20.6 70.0L21.5 72.1L22.4 74.2L23.5 76.2L24.7 78.3L26.0 80.3L27.4 82.3L28.8 84.2L30.4 86.2L32.2 88.1L34.0 89.9L35.8 91.8L37.8 93.5L39.9 95.3L42.1 96.9L44.3 98.5L46.7 100.1L49.1 101.6L51.6 103.0L53.3 103.9"/><path stroke="#1f8a78" d="M67.9 110.0L70.8 110.9L73.8 111.7L76.8 112.4L79.8 113.1L82.9 113.6L85.9 114.1L89.0 114.4L92.2 114.7L95.3 114.9L98.4 115.0L101.6 115.0L104.7 114.9L107.8 114.7L111.0 114.4L114.1 114.1L117.1 113.6L120.2 113.1L123.2 112.4L126.2 111.7L129.2 110.9L132.1 110.0L135.0 109.0L137.8 108.0L140.5 106.9L143.2 105.6L145.8 104.4L148.4 103.0L150.9 101.6L153.3 100.1L155.7 98.5L157.9 96.9L160.1 95.3L162.2 93.5L164.2 91.8L166.0 89.9L167.8 88.1L169.6 86.2L171.2 84.2L172.6 82.3L174.0 80.3L175.3 78.3L176.5 76.2L177.6 74.2L178.5 72.1L179.4 70.0L180.1 67.9L180.7 65.9L181.2 63.8L181.6 61.7L181.9 59.7L182.0 57.6L182.1 55.6L182.0 53.6L181.8 51.7L181.5 49.8L181.1 47.9L180.6 46.1L180.0 44.3L179.2 42.5L178.4 40.8L177.5 39.2L176.4 37.6L175.3 36.1L174.0 34.7L172.7 33.3L171.3 32.0L169.8 30.8L168.2 29.7L166.5 28.6L164.7 27.6L162.9 26.8L161.0 26.0L159.0 25.3L156.9 24.7L154.8 24.2L152.7 23.8L150.4 23.5L148.2 23.2L145.9 23.1L143.5 23.1L141.1 23.2L138.7 23.4L136.2 23.8L133.8 24.2L131.3 24.7L128.7 25.3L126.2 26.1L123.7 26.9L121.2 27.8L118.6 28.9L116.1 30.0L113.6 31.3L111.1 32.6L108.6 34.1L107.0 35.1"/></svg>
+      <p class="caption">A tricolouring of the trefoil</p>
+      <h1>AKSIOMA Knots</h1>
+      <p class="subtitle">An interactive laboratory for knot theory</p>
+      <p class="imprint">Version 1.0.0 · Windows · English and Albanian · Free software (GPL v3)</p>
+      <div class="actions">
+        <a class="btn" href="https://github.com/Albionn1/AKSIOMA-Knots/releases/latest" rel="noopener">Download for Windows</a>
+        <a href="manual.html">Read the manual</a>
+      </div>
+
+      <div class="abstract">
+        <h2>Abstract</h2>
+        <p>AKSIOMA Knots shows a knot as a solid curve in space and computes what can be said about it. It holds all 12,965 prime knots with up to 13 crossings, accepts knots you draw or write as formulas, unknots them by crossing changes, forms connected sums, builds Seifert surfaces and sets exercises. This page introduces the program; the pictures and recordings are taken from it.</p>
+      </div>
+    </div>
+
+    <figure class="fig wide">
+      <img class="zoom" src="assets/img/ui-crossings.webp" width="1800" height="1075" alt="The AKSIOMA Knots window: the figure-eight knot with coloured strands and numbered crossings, its polynomials and properties on the right">
+      <figcaption>The program with the figure-eight knot 4<sub>1</sub>: the tools on the left, the knot in the middle, its invariants on the right. Strand colours and crossing numbers are switched on.</figcaption>
+    </figure>
+
+    <nav class="contents col" aria-label="Contents">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#knots">Knots</a></li>
+        <li><a href="#invariants">Invariants</a></li>
+        <li><a href="#diagrams">Diagrams</a></li>
+        <li><a href="#unknotting">Unknotting</a></li>
+        <li><a href="#sums">Connected sums</a></li>
+        <li><a href="#surfaces">Seifert surfaces</a></li>
+        <li><a href="#rope">The knot as an object</a></li>
+        <li><a href="#exercises">Exercises</a></li>
+        <li><a href="#obtain">Obtaining the program</a></li>
+      </ol>
+    </nav>
+
+    <section class="chapter" id="knots">
+      <div class="col">
+        <h2>Knots</h2>
+        <p class="thm upright" data-kind="Definition" data-by="">A <i>knot</i> is a closed curve in three-dimensional space that does not meet itself. Two knots are the same if one can be deformed into the other without the curve ever passing through itself. The circle is the <i>unknot</i>.</p>
+        <p class="side">In the program: the knot list and <i>Browse</i>, in the top bar.</p>
+        <p>A mathematical knot has no loose ends, so it cannot be untied: the question is which knot it is. The program offers several ways to bring one onto the screen. There is a short list of classical knots, torus knots <i>T</i>(<i>p</i>,&#8239;<i>q</i>) for <i>p</i> and <i>q</i> up to 20, curves written as formulas in a parameter <i>t</i>, and the table of prime knots from KnotInfo, searchable by name (8_19, 11n34, “Conway”) and filtered by crossing number and type.</p>
+      </div>
+
+      <figure class="fig wide">
+        <div class="row">
+          <figure><img class="zoom" src="assets/img/ui-browser.webp" width="1500" height="996" alt="The Knot Browser: a list of knots, a 3D preview of knot 8₁₉ and its properties" loading="lazy"><figcaption>(a) The Knot Browser, at 8<sub>19</sub></figcaption></figure>
+          <figure><img class="zoom" src="assets/img/ui-torus.webp" width="1800" height="1075" alt="The torus knot T(3,5) in the main window" loading="lazy"><figcaption>(b) The torus knot <i>T</i>(3,&#8239;5)</figcaption></figure>
+        </div>
+        <figcaption>Choosing a knot.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter" id="invariants">
+      <div class="col">
+        <h2>Invariants</h2>
+        <p>To tell knots apart one computes <i>invariants</i>: quantities that do not change under deformation. If two curves give different values, they are different knots. The converse fails in general.</p>
+        <p class="side">The panel also lists crossing number, unknotting number, genus, signature, determinant, symmetry, hyperbolic volume and braid index for knots in the table.</p>
+        <p>For each curve the program shows the Alexander polynomial &Delta;(<i>t</i>) and the Jones polynomial <i>V</i>(<i>t</i>). For the first three knots of the table:</p>
+
+        <div class="table-wrap">
+          <table class="formulas">
+            <tr><th>Knot</th><th>&Delta;(<i>t</i>)</th><th><i>V</i>(<i>t</i>)</th><th>|&Delta;(−1)|</th></tr>
+            <tr><td>0<sub>1</sub>, unknot</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>3<sub>1</sub>, right-handed trefoil</td><td><i>t</i> − 1 + <i>t</i><sup>−1</sup></td><td>−<i>t</i><sup>4</sup> + <i>t</i><sup>3</sup> + <i>t</i></td><td>3</td></tr>
+            <tr><td>4<sub>1</sub>, figure-eight</td><td>−<i>t</i> + 3 − <i>t</i><sup>−1</sup></td><td><i>t</i><sup>2</sup> − <i>t</i> + 1 − <i>t</i><sup>−1</sup> + <i>t</i><sup>−2</sup></td><td>5</td></tr>
+          </table>
+        </div>
+
+        <p>For a curve you made yourself, the polynomials are computed from a projection and the knot is then looked up. The answer is worded with care:</p>
+        <p class="thm upright" data-kind="Remark" data-by="">The program writes <i>“Probably the three-twist knot”</i> and not “this is”, because two different knots can have equal polynomials.</p>
+      </div>
+
+      <figure class="fig wide">
+        <img class="zoom" src="assets/img/ui-custom.webp" width="1800" height="1075" alt="A curve typed as three formulas, identified as probably the three-twist knot" loading="lazy">
+        <figcaption>A curve given by <i>x</i> = cos(3<i>t</i> + 0.7), <i>y</i> = cos(2<i>t</i> + 0.2), <i>z</i> = cos(7<i>t</i>), identified as probably 5<sub>2</sub>. The note under the polynomials says how they were obtained.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter" id="diagrams">
+      <div class="col">
+        <h2>Diagrams</h2>
+        <p>A <i>diagram</i> is a drawing of a knot in the plane that records, at every crossing, which strand passes over.</p>
+        <p class="thm" data-kind="Theorem" data-by=" (Reidemeister, 1927)">Two diagrams represent the same knot if and only if one can be turned into the other by deformations of the plane and a finite sequence of three local moves, called the Reidemeister moves I, II and III.</p>
+        <p class="side">In the program: <i>Draw</i>. The areas where a move is possible are shaded and labelled R1, R2, R3.</p>
+        <p>You can draw a diagram with one stroke of the mouse. The crossings are found automatically, a click exchanges the over and under strands, and a Reidemeister move can be chosen and watched. The finished diagram becomes a knot in space, with all its invariants.</p>
+      </div>
+
+      <figure class="fig col">
+        <img class="zoom" src="assets/img/ui-draw.webp" width="1470" height="1061" alt="The drawing window with a hand-drawn loop with three crossings" loading="lazy">
+        <figcaption>A trefoil drawn by hand.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter" id="unknotting">
+      <div class="col">
+        <h2>Unknotting</h2>
+        <p class="thm" data-kind="Proposition" data-by="">Every knot diagram can be turned into a diagram of the unknot by changing some of its crossings.</p>
+        <p class="side">In the program: <i>Unknot</i>, <kbd>Ctrl</kbd> <kbd>3</kbd>. <kbd>Space</kbd> plays and pauses.</p>
+        <p>The smallest number of crossing changes that undoes a knot is its <i>unknotting number</i>. The program carries out such a sequence: it chooses a viewpoint, draws the diagram, lets the two strands pass through each other at each chosen crossing, and pulls the result open into a circle. The number of changes it uses is an upper bound for the unknotting number. Each step can be inspected, with the diagram before and after.</p>
+      </div>
+
+      <figure class="fig col">
+        <video data-clip muted loop playsinline preload="metadata" poster="assets/video/unknot.jpg" src="assets/video/unknot.mp4" aria-label="Knot 6₂ being unknotted by two crossing changes"></video>
+        <figcaption>Knot 6<sub>2</sub> unknotted, with its diagram in the lower corner.</figcaption>
+      </figure>
+
+      <figure class="fig col">
+        <img class="zoom" src="assets/img/ui-unknot-steps.webp" width="1350" height="930" alt="The list of crossing changes with diagrams before and after" loading="lazy">
+        <figcaption>The same unknotting, step by step.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter" id="sums">
+      <div class="col">
+        <h2>Connected sums</h2>
+        <p>Cut a small arc from each of two knots <i>K</i><sub>1</sub> and <i>K</i><sub>2</sub> and join the loose ends by two new strands. The result is the <i>connected sum</i> <i>K</i><sub>1</sub> # <i>K</i><sub>2</sub>. Its polynomials are products:</p>
+        <div class="eq"><span>&Delta;<sub><i>K</i><sub>1</sub> # <i>K</i><sub>2</sub></sub> = &Delta;<sub><i>K</i><sub>1</sub></sub> &Delta;<sub><i>K</i><sub>2</sub></sub>, &emsp; <i>V</i><sub><i>K</i><sub>1</sub> # <i>K</i><sub>2</sub></sub> = <i>V</i><sub><i>K</i><sub>1</sub></sub> <i>V</i><sub><i>K</i><sub>2</sub></sub></span></div>
+        <p class="side">In the program: <i>Join</i>, <kbd>Ctrl</kbd> <kbd>4</kbd>.</p>
+        <p>The construction is animated. Two trefoils of the same handedness give the granny knot; a trefoil and its mirror image give the square knot.</p>
+      </div>
+
+      <figure class="fig col">
+        <video data-clip muted loop playsinline preload="metadata" poster="assets/video/join.jpg" src="assets/video/join.mp4" aria-label="A trefoil and its mirror image being joined"></video>
+        <figcaption>A trefoil and its mirror image become the square knot.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter" id="surfaces">
+      <div class="col">
+        <h2>Seifert surfaces</h2>
+        <p class="thm" data-kind="Theorem" data-by=" (Seifert, 1935)">Every knot is the boundary of a compact, connected, orientable surface.</p>
+        <p>Seifert’s algorithm produces such a surface from a diagram with <i>c</i> crossings. Smoothing every crossing leaves <i>s</i> disjoint circles; each is filled with a disk, and the disks are joined by one half-twisted band per crossing. The surface has genus</p>
+        <div class="eq"><span><i>g</i> = (<i>c</i> − <i>s</i> + 1) / 2.</span></div>
+        <p class="side">In the program: <i>Surface</i>, <kbd>Ctrl</kbd> <kbd>5</kbd>. Click an entry of the matrix to see its two loops on the surface.</p>
+        <p>The program builds the surface in five stages and finally lets it contract, as a soap film would. It also gives the Seifert matrix <i>V</i>, from which the signature, the determinant and &Delta;(<i>t</i>) = det(<i>V</i> − <i>t</i><i>V</i><sup>T</sup>), up to a unit, are obtained.</p>
+      </div>
+
+      <figure class="fig wide">
+        <div class="row row-5">
+          <figure><img class="zoom" src="assets/img/surface-0.webp" width="1000" height="625" alt="The knot laid flat" loading="lazy"><figcaption>(a) diagram</figcaption></figure>
+          <figure><img class="zoom" src="assets/img/surface-1.webp" width="1000" height="625" alt="Two Seifert circles" loading="lazy"><figcaption>(b) circles</figcaption></figure>
+          <figure><img class="zoom" src="assets/img/surface-2.webp" width="1000" height="625" alt="The circles filled with disks" loading="lazy"><figcaption>(c) disks</figcaption></figure>
+          <figure><img class="zoom" src="assets/img/surface-3.webp" width="1000" height="625" alt="Disks joined by twisted bands" loading="lazy"><figcaption>(d) bands</figcaption></figure>
+          <figure><img class="zoom" src="assets/img/surface-4.webp" width="1000" height="625" alt="The surface pulled tight" loading="lazy"><figcaption>(e) film</figcaption></figure>
+        </div>
+        <figcaption>The five stages for the trefoil: <i>c</i> = 3, <i>s</i> = 2, so <i>g</i> = 1.</figcaption>
+      </figure>
+
+      <figure class="fig col">
+        <img class="zoom" src="assets/img/ui-seifert-4.webp" width="1800" height="1075" alt="The finished surface in the program with its genus and Seifert matrix" loading="lazy">
+        <figcaption>The finished surface, with genus and Seifert matrix in the panel on the left.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter" id="rope">
+      <div class="col">
+        <h2>The knot as an object</h2>
+        <p>Strands of real rope cannot pass through one another, and so rope preserves the knot type. The program uses this twice. <i>Relax</i> lets a curve, or a deliberately scrambled one, settle into an easier shape without ever letting it cross itself. <i>Photo mode</i> lays the knot down as rope under gravity, where it can be picked up, pushed under itself, cut and tied again.</p>
+        <p class="side">In the program: <i>Relax</i>, <kbd>Ctrl</kbd> <kbd>2</kbd>; the <i>Photo</i> button below the view.</p>
+        <p>Photo mode has four scenes: hemp rope on a garden table, a shoelace on boards, and a model railway by day or by night. On the railway every crossing is a bridge, and as the train runs the program writes out the <i>Gauss code</i> of the knot, the list of crossings in the order they are met, each marked over or under.</p>
+      </div>
+
+      <figure class="fig col">
+        <video data-clip muted loop playsinline preload="metadata" poster="assets/video/relax.jpg" src="assets/video/relax.mp4" aria-label="A scrambled knot relaxing without strands passing through each other"></video>
+        <figcaption>The figure-eight knot scrambled and relaxed. It is the same knot throughout.</figcaption>
+      </figure>
+
+      <figure class="fig wide">
+        <div class="row">
+          <figure><img class="zoom" src="assets/img/rope-table.webp" width="1800" height="1125" alt="A hemp rope knot on a dark stone table" loading="lazy"><figcaption>(a) 5<sub>2</sub> in hemp rope</figcaption></figure>
+          <figure><img class="zoom" src="assets/img/shoelace.webp" width="1480" height="985" alt="A white shoelace knot on wooden boards" loading="lazy"><figcaption>(b) 4<sub>1</sub> as a shoelace</figcaption></figure>
+          <figure><img class="zoom" src="assets/img/train-night.webp" width="1780" height="1200" alt="A model railway shaped like the trefoil at night, with the Gauss code in the corner" loading="lazy"><figcaption>(c) 3<sub>1</sub> as a railway, with its Gauss code</figcaption></figure>
+          <figure><img class="zoom" src="assets/img/soap-surface.webp" width="1600" height="1200" alt="The Seifert surface of the trefoil as cloth on a brass wire" loading="lazy"><figcaption>(d) The Seifert surface of 3<sub>1</sub> on a wire</figcaption></figure>
+        </div>
+        <figcaption>Pictures rendered by the program in Photo mode.</figcaption>
+      </figure>
+
+      <figure class="fig col">
+        <video data-clip muted loop playsinline preload="metadata" poster="assets/video/train.jpg" src="assets/video/train.mp4" aria-label="A model steam train running along a track shaped like a knot"></video>
+        <figcaption>The railway in motion, filmed by the program.</figcaption>
+      </figure>
+
+      <figure class="fig wide">
+        <div class="row">
+          <figure><img class="zoom" src="assets/img/ui-photo-grab.webp" width="1800" height="1075" alt="The rope held, with the Cut the rope button available" loading="lazy"><figcaption>(a) The rope taken in hand</figcaption></figure>
+          <figure><img class="zoom" src="assets/img/ui-photo-cut.webp" width="1800" height="1075" alt="The rope cut open, with the Tie the ends button" loading="lazy"><figcaption>(b) Cut, ready to be tied again</figcaption></figure>
+        </div>
+        <figcaption>After every move the program names the knot that tying the ends would give.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter" id="exercises">
+      <div class="col">
+        <h2>Exercises</h2>
+        <p>A <i>tricolouring</i> gives each arc of a diagram one of three colours, so that at every crossing the three arcs are all alike or all different, and at least two colours occur.</p>
+        <p class="thm" data-kind="Proposition" data-by="">Whether a diagram can be tricoloured does not change under Reidemeister moves. Hence a knot with a tricoloured diagram is not the unknot.</p>
+        <p class="side">In the program: <i>Practice</i>, at the top right.</p>
+        <p>The practice window asks the student to find such colourings, or to decide that none exists, and to determine the sign of every crossing; the signs add up to the writhe. It checks each answer and gives hints, on the knot on screen, a knot chosen at random, or one the student draws.</p>
+      </div>
+
+      <figure class="fig wide">
+        <div class="row">
+          <figure><img class="zoom" src="assets/img/ui-practice-colour.webp" width="1500" height="947" alt="A correctly tricoloured diagram" loading="lazy"><figcaption>(a) A tricolouring</figcaption></figure>
+          <figure><img class="zoom" src="assets/img/ui-practice-signs.webp" width="1500" height="947" alt="Crossing signs marked and checked" loading="lazy"><figcaption>(b) Crossing signs</figcaption></figure>
+        </div>
+        <figcaption>The two kinds of exercise.</figcaption>
+      </figure>
+    </section>
+
+    <section class="chapter" id="obtain">
+      <div class="col">
+        <h2>Obtaining the program</h2>
+        <p>AKSIOMA Knots is free software under the GNU General Public License, version 3. No account is needed.</p>
+        <div class="table-wrap">
+          <table>
+            <tr><td>Version</td><td>1.0.0</td></tr>
+            <tr><td>System</td><td>Windows 10 or newer, 64-bit</td></tr>
+            <tr><td>Graphics</td><td>OpenGL 3.3 or newer</td></tr>
+            <tr><td>Installer</td><td>About 113 MB</td></tr>
+            <tr><td>Languages</td><td>English and Albanian (Shqip)</td></tr>
+          </table>
+        </div>
+        <p class="actions" style="justify-content: flex-start">
+          <a class="btn" href="https://github.com/Albionn1/AKSIOMA-Knots/releases/latest" rel="noopener">Download the installer</a>
+          <a href="https://github.com/Albionn1/AKSIOMA-Knots" rel="noopener">Source code</a>
+        </p>
+        <p>The installer is not signed, so Windows may show “Windows protected your PC”. Choose <i>More info</i> and then <i>Run anyway</i>. How to use the program is described in the <a href="manual.html">manual</a>; its file format and methods in the <a href="docs.html">docs</a>.</p>
+
+        <h3>References</h3>
+        <ol class="refs">
+          <li><span>J. W. Alexander, Topological invariants of knots and links, <i>Trans. Amer. Math. Soc.</i> <b>30</b> (1928), 275–306.</span></li>
+          <li><span>V. F. R. Jones, A polynomial invariant for knots via von Neumann algebras, <i>Bull. Amer. Math. Soc.</i> <b>12</b> (1985), 103–111.</span></li>
+          <li><span>C. Livingston and A. H. Moore, <i><a href="https://knotinfo.math.indiana.edu/" rel="noopener">KnotInfo: Table of Knot Invariants</a></i>. The source of the program’s knot table.</span></li>
+          <li><span>K. Reidemeister, Elementare Begründung der Knotentheorie, <i>Abh. Math. Sem. Univ. Hamburg</i> <b>5</b> (1927), 24–32.</span></li>
+          <li><span>H. Seifert, Über das Geschlecht von Knoten, <i>Math. Ann.</i> <b>110</b> (1935), 571–592.</span></li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <p>Copyright © 2026 AKSIOMA. Photo mode uses rooms and textures from <a href="https://polyhaven.com/" rel="noopener">Poly Haven</a> (CC0). Built with Qt.</p>
+    <p><a href="https://github.com/Albionn1/AKSIOMA-Knots/issues" rel="noopener">Report a problem</a> · <a href="../index.html">AKSIOMA home</a></p>
+  </footer>
+
+  <script src="assets/js/knots.js"></script>
+</body>
+</html>

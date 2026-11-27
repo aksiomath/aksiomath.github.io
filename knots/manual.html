@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual | AKSIOMA Knots</title>
+  <meta name="description" content="The user manual of AKSIOMA Knots 1.0.0: every window, tool and shortcut, with pictures from the program.">
+  <meta name="theme-color" content="#1c1f27">
+  <script>
+    // before anything is painted: dark unless the reader chose light
+    try {
+      if (localStorage.getItem('knots-theme') === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    } catch (e) { /* storage may be closed: stay dark */ }
+  </script>
+  <link rel="icon" href="assets/img/app-icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/knots.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <div class="top-in">
+      <a class="brand" href="knots.html"><svg class="mark" viewBox="10 12 180 172" aria-hidden="true" fill="none" stroke-width="15" stroke-linecap="round"><path stroke="#3557b7" d="M90.0 48.9L87.9 51.2L85.8 53.5L83.8 55.8L81.9 58.3L80.0 60.8L78.2 63.4L76.5 66.0L74.8 68.6L73.2 71.4L71.8 74.1L70.3 76.9L69.0 79.8L67.8 82.6L66.6 85.5L65.6 88.5L64.6 91.4L63.8 94.4L63.0 97.3L62.3 100.3L61.7 103.3L61.2 106.2L60.8 109.2L60.5 112.1L60.3 115.0L60.2 117.9L60.2 120.8L60.3 123.6L60.4 126.4L60.7 129.2L61.1 131.9L61.5 134.6L62.1 137.2L62.7 139.7L63.4 142.2L64.2 144.6L65.1 147.0L66.0 149.3L67.1 151.5L68.2 153.6L69.4 155.6L70.6 157.6L71.9 159.5L73.3 161.2L74.7 162.9L76.2 164.5L77.8 165.9L79.4 167.3L81.0 168.6L82.7 169.7L84.4 170.8L86.2 171.7L87.9 172.5L89.7 173.2L91.6 173.8L93.4 174.3L95.3 174.6L97.2 174.9L99.1 175.0L100.9 175.0L102.8 174.9L104.7 174.6L106.6 174.3L108.4 173.8L110.3 173.2L112.1 172.5L113.8 171.7L115.6 170.8L117.3 169.7L119.0 168.6L120.6 167.3L122.2 165.9L123.8 164.5L125.3 162.9L126.7 161.2L128.1 159.5L129.4 157.6L130.6 155.6L131.8 153.6L132.9 151.5L134.0 149.3L134.9 147.0L135.8 144.6L136.6 142.2L137.3 139.7L137.9 137.2L138.5 134.6L138.9 131.9L139.3 129.2L139.6 126.4L139.7 123.6L139.8 122.7"/><path stroke="#d98a1f" d="M136.2 94.4L135.4 91.4L134.4 88.5L133.4 85.5L132.2 82.6L131.0 79.8L129.7 76.9L128.2 74.1L126.8 71.4L125.2 68.6L123.5 66.0L121.8 63.4L120.0 60.8L118.1 58.3L116.2 55.8L114.2 53.5L112.1 51.2L110.0 48.9L107.8 46.8L105.6 44.7L103.3 42.7L101.0 40.8L98.7 39.0L96.3 37.3L93.8 35.6L91.4 34.1L88.9 32.6L86.4 31.3L83.9 30.0L81.4 28.9L78.8 27.8L76.3 26.9L73.8 26.1L71.3 25.3L68.7 24.7L66.2 24.2L63.8 23.8L61.3 23.4L58.9 23.2L56.5 23.1L54.1 23.1L51.8 23.2L49.6 23.5L47.3 23.8L45.2 24.2L43.1 24.7L41.0 25.3L39.0 26.0L37.1 26.8L35.3 27.6L33.5 28.6L31.8 29.7L30.2 30.8L28.7 32.0L27.3 33.3L26.0 34.7L24.7 36.1L23.6 37.6L22.5 39.2L21.6 40.8L20.8 42.5L20.0 44.3L19.4 46.1L18.9 47.9L18.5 49.8L18.2 51.7L18.0 53.6L17.9 55.6L18.0 57.6L18.1 59.7L18.4 61.7L18.8 63.8L19.3 65.9L19.9 67.9L20.6 70.0L21.5 72.1L22.4 74.2L23.5 76.2L24.7 78.3L26.0 80.3L27.4 82.3L28.8 84.2L30.4 86.2L32.2 88.1L34.0 89.9L35.8 91.8L37.8 93.5L39.9 95.3L42.1 96.9L44.3 98.5L46.7 100.1L47.5 100.6"/><path stroke="#1f8a78" d="M73.8 111.7L76.8 112.4L79.8 113.1L82.9 113.6L85.9 114.1L89.0 114.4L92.2 114.7L95.3 114.9L98.4 115.0L101.6 115.0L104.7 114.9L107.8 114.7L111.0 114.4L114.1 114.1L117.1 113.6L120.2 113.1L123.2 112.4L126.2 111.7L129.2 110.9L132.1 110.0L135.0 109.0L137.8 108.0L140.5 106.9L143.2 105.6L145.8 104.4L148.4 103.0L150.9 101.6L153.3 100.1L155.7 98.5L157.9 96.9L160.1 95.3L162.2 93.5L164.2 91.8L166.0 89.9L167.8 88.1L169.6 86.2L171.2 84.2L172.6 82.3L174.0 80.3L175.3 78.3L176.5 76.2L177.6 74.2L178.5 72.1L179.4 70.0L180.1 67.9L180.7 65.9L181.2 63.8L181.6 61.7L181.9 59.7L182.0 57.6L182.1 55.6L182.0 53.6L181.8 51.7L181.5 49.8L181.1 47.9L180.6 46.1L180.0 44.3L179.2 42.5L178.4 40.8L177.5 39.2L176.4 37.6L175.3 36.1L174.0 34.7L172.7 33.3L171.3 32.0L169.8 30.8L168.2 29.7L166.5 28.6L164.7 27.6L162.9 26.8L161.0 26.0L159.0 25.3L156.9 24.7L154.8 24.2L152.7 23.8L150.4 23.5L148.2 23.2L145.9 23.1L143.5 23.1L141.1 23.2L138.7 23.4L136.2 23.8L133.8 24.2L131.3 24.7L128.7 25.3L126.2 26.1L123.7 26.9L121.2 27.8L118.6 28.9L116.1 30.0L113.6 31.3L112.8 31.7"/></svg><span>AKSIOMA <i>Knots</i></span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="knots.html">Introduction</a>
+        <a href="manual.html" aria-current="page">Manual</a>
+        <a href="docs.html">Docs</a>
+        <a href="knots.html#obtain">Download</a>
+      </nav>
+      <button class="theme-btn" type="button" hidden>
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3 7 7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="doc-title">
+    <h1>Manual</h1>
+    <p>AKSIOMA Knots 1.0.0, English interface. Reference material is in the <a href="docs.html">docs</a>.</p>
+  </div>
+
+  <div class="doc">
+    <aside class="toc" aria-label="Contents">
+      <button type="button" class="btn btn-small toc-toggle" aria-expanded="false">Contents</button>
+      <div class="toc-body">
+        <label for="q">Search the manual</label>
+        <input id="q" type="search" placeholder="torus, undo, photo..." autocomplete="off">
+        <p class="none" hidden>No section mentions that.</p>
+        <ol>
+          <li><a href="#install">Install</a></li>
+          <li><a href="#window">The window</a></li>
+          <li><a href="#view">Moving the view</a></li>
+          <li><a href="#choose">Choosing a knot</a></li>
+          <li><a href="#draw">Drawing a knot</a></li>
+          <li><a href="#analysis">Reading the analysis</a></li>
+          <li><a href="#style">Style</a></li>
+          <li><a href="#relax">Relax and grab</a></li>
+          <li><a href="#unknot">Unknot</a></li>
+          <li><a href="#join">Join</a></li>
+          <li><a href="#surface">Surface</a></li>
+          <li><a href="#photo">Photo mode</a></li>
+          <li><a href="#practice">Practice</a></li>
+          <li><a href="#files">Saving and exporting</a></li>
+          <li><a href="#settings">Settings</a></li>
+          <li><a href="#shortcuts">Shortcuts</a></li>
+          <li><a href="#trouble">Troubleshooting</a></li>
+          <li><a href="#glossary">Glossary</a></li>
+        </ol>
+      </div>
+    </aside>
+
+    <main class="article" id="main">
+
+      <section id="install">
+        <h2>Install</h2>
+        <p>You need 64-bit Windows 10 or newer and a graphics card with OpenGL 3.3.</p>
+        <ol>
+          <li>Download <code>AKSIOMA-Knots-1.0.0-Setup.exe</code> from the <a href="https://github.com/Albionn1/AKSIOMA-Knots/releases/latest" rel="noopener">latest release</a>.</li>
+          <li>Run it. If Windows shows "Windows protected your PC", choose <em>More info</em>, then <em>Run anyway</em>. The installer is not signed yet.</li>
+          <li>Choose English or Albanian, and whether to install for yourself (no administrator rights needed) or for everyone.</li>
+        </ol>
+        <p>The program speaks Albanian on an Albanian Windows and English everywhere else. You can change this in Settings at any time. Files ending in <code>.aknot</code> open in AKSIOMA Knots when double-clicked.</p>
+        <p>On the first start a short tour of three steps points at the knot list, the tool rail and the Photo button. Skip it if you like; <em>Help &gt; Show the tour</em> brings it back.</p>
+        <figure class="fig">
+          <img class="zoom" src="assets/img/ui-tour.webp" width="1800" height="1075" alt="The first step of the tour, titled Pick a knot, under the knot list" loading="lazy">
+          <figcaption>The first of the three tour cards.</figcaption>
+        </figure>
+      </section>
+
+      <section id="window">
+        <h2>The window</h2>
+        <figure class="fig">
+          <div class="map">
+            <img class="zoom" src="assets/img/ui-main.webp" width="1800" height="1075" alt="The main window with the trefoil loaded">
+            <span class="pin" style="left:48%;top:3.5%" aria-hidden="true">1</span>
+            <span class="pin" style="left:2.9%;top:50%" aria-hidden="true">2</span>
+            <span class="pin" style="left:16.6%;top:68%" aria-hidden="true">3</span>
+            <span class="pin" style="left:51%;top:20%" aria-hidden="true">4</span>
+            <span class="pin" style="left:49%;top:97%" aria-hidden="true">5</span>
+            <span class="pin" style="left:94%;top:9.6%" aria-hidden="true">6</span>
+            <span class="pin" style="left:75.5%;top:3.5%" aria-hidden="true">7</span>
+          </div>
+          <figcaption>The window as it opens, with the trefoil.</figcaption>
+        </figure>
+        <div class="table-wrap">
+          <table class="wrap-first">
+            <tr><th>Part</th><th>What it is for</th></tr>
+            <tr><td><strong>1. Knot bar</strong></td><td>The knot list, <em>Browse...</em> and <em>Draw...</em></td></tr>
+            <tr><td><strong>2. Tool rail</strong></td><td>Style, Relax, Unknot, Join, Surface. Click the open tool again to fold its panel away.</td></tr>
+            <tr><td><strong>3. Tool panel</strong></td><td>The controls of the tool you chose.</td></tr>
+            <tr><td><strong>4. 3D view</strong></td><td>The knot. Turn it, move it, zoom it.</td></tr>
+            <tr><td><strong>5. View bar</strong></td><td><em>Photo</em>, <em>Reset view</em> and <em>Analysis</em>. Playback and train controls appear here when needed.</td></tr>
+            <tr><td><strong>6. Analysis panel</strong></td><td>The knot's name and invariants, and a <em>Learn</em> tab that explains them.</td></tr>
+            <tr><td><strong>7. Top right</strong></td><td>Undo, redo, <em>Practice</em>, <em>File</em>, <em>Settings</em> and <em>Help</em>.</td></tr>
+          </table>
+        </div>
+        <p>The program remembers which tool was open, which panels were folded and which tab you were reading.</p>
+        <h3>Find anything</h3>
+        <p>Press <kbd>Ctrl</kbd> <kbd>K</kbd> and type. The list covers menu commands, tools, actions, knots in the table, photo scenes and recent files.</p>
+        <figure class="fig fig-mid">
+          <img class="zoom" src="assets/img/ui-palette.webp" width="930" height="150" alt="The search box with the word conway typed and the Conway knot 11n34 found" loading="lazy">
+          <figcaption>Typing "conway" finds knot 11n34.</figcaption>
+        </figure>
+      </section>
+
+      <section id="view">
+        <h2>Moving the view</h2>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Do this</th><th>To</th></tr>
+            <tr><td>Drag with the left button</td><td>Turn the view around the knot</td></tr>
+            <tr><td>Drag with the right button</td><td>Move the view</td></tr>
+            <tr><td>Scroll wheel</td><td>Zoom</td></tr>
+            <tr><td><em>Reset view</em></td><td>Turn to the clearest view of the knot and fit it in the window</td></tr>
+            <tr><td><kbd>F11</kbd> / <kbd>Esc</kbd></td><td>Full screen on and off</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <section id="choose">
+        <h2>Choosing a knot</h2>
+        <h3>The knot list</h3>
+        <ul>
+          <li><strong>Unknot</strong>, <strong>Trefoil</strong> (3₁), <strong>Figure-eight</strong> (4₁), <strong>Cinquefoil</strong> (5₁) and <strong>Stevedore</strong> (6₁).</li>
+          <li><strong>DNA Double Helix</strong> and <strong>Celtic Armor</strong>: structures of several strands. For these the program shows linking numbers. Tools that need one closed curve say so.</li>
+          <li><strong>Custom Torus T(p,q)</strong>: type two whole numbers from 1 to 20. If p and q share a factor, you get a link of several loops.</li>
+          <li><strong>Custom Curve</strong>: your own formula or list of points.</li>
+          <li><strong>Knot Table</strong>: any of the 12,965 knots in the browser.</li>
+        </ul>
+        <figure class="fig">
+          <img class="zoom" src="assets/img/ui-torus.webp" width="1800" height="1075" alt="The torus knot T(3,5) drawn with strand colours" loading="lazy">
+          <figcaption>The torus knot T(3,5) with Strand Colors.</figcaption>
+        </figure>
+
+        <h3>The Knot Browser</h3>
+        <p><em>Browse...</em> opens every prime knot with up to 13 crossings.</p>
+        <ul>
+          <li>Search by name (<code>8_19</code>, <code>11n34</code>) or by a word such as <em>trefoil</em> or <em>Conway</em>.</li>
+          <li>Filter by number of crossings, and by <em>Alternating</em>, <em>Non-alternating</em>, <em>Fibered</em> or <em>Amphicheiral</em>.</li>
+          <li>Click a knot to see it turn in 3D with its properties. <em>Load knot</em>, or a double click, takes it to the main window.</li>
+        </ul>
+        <figure class="fig">
+          <img class="zoom" src="assets/img/ui-browser.webp" width="1500" height="996" alt="The Knot Browser showing knot 8₁₉" loading="lazy">
+          <figcaption>Knot 8₁₉, the torus knot T(3,4), in the browser.</figcaption>
+        </figure>
+
+        <h3>Custom curves</h3>
+        <p>Choose <em>Custom Curve</em>. Write three formulas in <code>t</code>, which runs from 0 to 2π:</p>
+<pre><code>x = cos(3t + 0.7)
+y = cos(2t + 0.2)
+z = cos(7t)</code></pre>
+        <p>or one point per line as <code>x, y, z</code>. Press <em>APPLY</em> or <kbd>Ctrl</kbd> <kbd>Enter</kbd>. The <em>Examples</em> menu fills in a working curve. A curve that does not close by itself has its ends joined with a straight piece, and the program says so. The full list of functions is in the <a href="docs.html#formulas">formula reference</a>.</p>
+        <figure class="fig">
+          <img class="zoom" src="assets/img/ui-custom.webp" width="1800" height="1075" alt="A Lissajous knot typed as three formulas, identified as probably the three-twist knot" loading="lazy">
+          <figcaption>A Lissajous knot. The program identifies it as probably the three-twist knot, 5₂.</figcaption>
+        </figure>
+      </section>
+
+      <section id="draw">
+        <h2>Drawing a knot</h2>
+        <p><em>Draw...</em> opens a blank sheet. Hold the left button, draw <strong>one</strong> loop that crosses itself, and let go. Crossings are found automatically.</p>
+        <figure class="fig fig-mid">
+          <img class="zoom" src="assets/img/ui-draw.webp" width="1470" height="1061" alt="A loop with three crossings in the drawing window" loading="lazy">
+          <figcaption>One stroke, three crossings.</figcaption>
+        </figure>
+        <ul>
+          <li><strong>Click a crossing</strong> (the circle) to swap which strand goes over.</li>
+          <li><strong>Alternate</strong> makes the whole curve go over, under, over, under.</li>
+          <li><strong>Mirror</strong> swaps every crossing.</li>
+          <li><strong>Undo</strong> (<kbd>Ctrl</kbd> <kbd>Z</kbd>) and <strong>Clear</strong> do what they say.</li>
+          <li><strong>Shaded regions</strong> marked R1, R2 or R3 are places where a Reidemeister move is possible. Point at one to see which it is; click it to watch it happen. R1 removes a twist, R2 pulls two strands apart, R3 slides a strand across a crossing. None of them changes the knot.</li>
+        </ul>
+        <p>Press <em>USE THIS KNOT</em> to see it in 3D.</p>
+        <h3>When strands lie too close</h3>
+        <p>One tight spot makes the whole tube thin, so the program rings such places and shows a <em>Check your knot</em> screen. There you can use <em>Spread apart</em> (the knot stays the same), <em>Flip crossing</em> or <em>Remove loop</em> (either can change the knot, and the program tells you), go <em>Back to drawing</em>, or <em>Use it anyway</em>.</p>
+      </section>
+
+      <section id="analysis">
+        <h2>Reading the analysis</h2>
+        <figure class="fig">
+          <img class="zoom" src="assets/img/ui-analysis.webp" width="1800" height="1075" alt="The analysis panel for the torus knot 8₁₉" loading="lazy">
+          <figcaption>The panel for knot 8₁₉.</figcaption>
+        </figure>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Field</th><th>Meaning</th></tr>
+            <tr><td><strong>Classification</strong></td><td>The knot's name, and for chiral knots whether it is left- or right-handed.</td></tr>
+            <tr><td><strong>Writhe</strong></td><td>How much the 3D curve coils. It depends on the shape, so the same knot drawn differently has a different writhe. Below it, the writhe of the diagram.</td></tr>
+            <tr><td><strong>Crossings</strong></td><td>Crossings seen from the current direction. The true crossing number is added when it is known.</td></tr>
+            <tr><td><strong>Alexander polynomial</strong></td><td>A classical invariant. It cannot tell a knot from its mirror image.</td></tr>
+            <tr><td><strong>Jones polynomial</strong></td><td>A stronger invariant that usually does tell mirror images apart.</td></tr>
+            <tr><td><strong>Properties</strong></td><td>For knots in the table: alternating, unknotting number, genus, signature, determinant, fibered, symmetry, hyperbolic volume, braid index and whether it can be tricoloured.</td></tr>
+          </table>
+        </div>
+        <p>The grey note under the polynomials says how each value was obtained.</p>
+        <div class="note">
+          <p><strong>"Probably" means probably.</strong> If two knots have different polynomials, they are different. Equal polynomials do not prove that two knots are the same. So a curve you drew or typed is named with "Probably".</p>
+        </div>
+        <p>The <em>Learn</em> tab explains these ideas for the knot on screen, and what the current colour mode shows.</p>
+        <figure class="fig">
+          <img class="zoom" src="assets/img/ui-learn.webp" width="1800" height="1075" alt="The Learn tab explaining writhe, projection crossings and the polynomials" loading="lazy">
+          <figcaption>The Learn tab.</figcaption>
+        </figure>
+      </section>
+
+      <section id="style">
+        <h2>Style</h2>
+        <p>Style changes only how the knot looks, never the mathematics.</p>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Control</th><th>What it does</th></tr>
+            <tr><td><strong>Tube thickness</strong></td><td>Radius of the tube. If strands would touch, the program draws it thinner and shows both numbers.</td></tr>
+            <tr><td><strong>Material</strong></td><td>Rope, Glossy, Satin or Metal.</td></tr>
+            <tr><td><strong>Color mode</strong></td><td><em>Single Color</em>; <em>Crossing Colors</em>, where each crossing has a colour; or <em>Strand Colors</em>, one colour for each arc between two under-crossings. The square beside it picks the tube colour.</td></tr>
+            <tr><td><strong>Show crossing numbers</strong></td><td>Numbered markers on the crossings seen from the XY direction.</td></tr>
+            <tr><td><strong>Auto-rotate</strong></td><td>The knot turns slowly, good for presenting.</td></tr>
+            <tr><td><strong>More options</strong></td><td><em>Curve density</em> (points along the curve) and <em>Material shine</em>.</td></tr>
+          </table>
+        </div>
+        <p>Double-click a slider to return it to its usual value. Click a slider's number to type an exact one.</p>
+        <figure class="fig">
+          <img class="zoom" src="assets/img/ui-crossings.webp" width="1800" height="1075" alt="The figure-eight knot with strand colours and six numbered crossings" loading="lazy">
+          <figcaption>Figure-eight knot in Rope, with Strand Colors and crossing numbers. Six crossings are visible from this side; its crossing number is four.</figcaption>
+        </figure>
+      </section>
+
+      <section id="relax">
+        <h2>Relax and grab</h2>
+        <p>Open with <kbd>Ctrl</kbd> <kbd>2</kbd>. These work on a single closed curve.</p>
+        <ul>
+          <li><strong>Relax</strong> lets the knot settle: every part pushes the others away while the string keeps its length. <kbd>Space</kbd> starts and pauses.</li>
+          <li><strong>Scramble</strong> tangles it first, so you can watch it find its way back.</li>
+          <li><strong>Reset</strong> returns the original shape.</li>
+        </ul>
+        <p>Strands never pass through each other, so the knot type cannot change. Watch the classification stay the same as the picture changes.</p>
+        <figure class="fig">
+          <img class="zoom" src="assets/img/ui-relax.webp" width="1800" height="1075" alt="A scrambled knot in the middle of relaxing" loading="lazy">
+          <figcaption>Knot 6₂ part way through relaxing, with many more crossings than it needs.</figcaption>
+        </figure>
+        <h3>Grab the rope</h3>
+        <p>Turn on <em>Grab the rope</em> and drag a strand with the left button: the rest follows. Drag next to the rope to turn the view instead. <kbd>Esc</kbd> lets go.</p>
+        <p>In <a href="#photo">Photo mode</a> grabbing does more: the rope lies on the table, and you can cut it and tie it again.</p>
+      </section>
+
+      <section id="unknot">
+        <h2>Unknot</h2>
+        <p>Open with <kbd>Ctrl</kbd> <kbd>3</kbd>. The animation shows how any knot becomes a plain circle if strands may pass through each other. That move, a <strong>crossing change</strong>, is impossible for real rope, and it is the only thing that can change a knot.</p>
+        <figure class="fig">
+          <video data-clip muted loop playsinline preload="metadata" poster="assets/video/unknot.jpg" src="assets/video/unknot.mp4" aria-label="The unknotting animation of knot 6₂"></video>
+          <figcaption>Knot 6₂ with the diagram in the corner. Click the clip to pause it.</figcaption>
+        </figure>
+        <p>The stages are: choosing a viewpoint, a knot diagram, each crossing change in turn, downhill all the way, pulling it open, and a plain circle.</p>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Control</th><th>What it does</th></tr>
+            <tr><td><strong>Unknot / Pause / Play</strong></td><td>Start, pause and continue (<kbd>Space</kbd>).</td></tr>
+            <tr><td><strong>Timeline</strong></td><td>Drag to any moment. <kbd>←</kbd> and <kbd>→</kbd> step.</td></tr>
+            <tr><td><strong>Speed</strong></td><td>0.25×, 0.5×, 1×, 2× or 4×.</td></tr>
+            <tr><td><strong>Step by step</strong></td><td>Pauses at every stage. Good for teaching.</td></tr>
+            <tr><td><strong>Steps</strong></td><td>A list of every crossing change with the diagram before and after; <em>Show in 3D</em> jumps there.</td></tr>
+            <tr><td><strong>Reset</strong></td><td>Back to the original knot.</td></tr>
+          </table>
+        </div>
+        <figure class="fig fig-mid">
+          <img class="zoom" src="assets/img/ui-unknot-steps.webp" width="1350" height="930" alt="The window listing two crossing changes, with before and after diagrams" loading="lazy">
+          <figcaption>The Steps window.</figcaption>
+        </figure>
+        <p>The number of changes used is an <em>upper bound</em> for the knot's unknotting number: there may be a way with fewer.</p>
+        <p>With Photo mode on, the rope on the table is undone, and at the end the loose loop falls and lies as the unknot.</p>
+      </section>
+
+      <section id="join">
+        <h2>Join</h2>
+        <p>Open with <kbd>Ctrl</kbd> <kbd>4</kbd>. Join makes the <strong>connected sum</strong> K₁ # K₂ of the knot on screen and a second one.</p>
+        <ol>
+          <li>Pick the <em>Second knot</em>: Trefoil, Figure-eight, Cinquefoil, Stevedore, the same as the current knot, or one from the knot table.</li>
+          <li>Tick <em>Mirror image of the second knot</em> if you want its reflection.</li>
+          <li>Press <em>Join</em>. The four stages are: two knots, cut, the band, one knot.</li>
+        </ol>
+        <figure class="fig">
+          <video data-clip muted loop playsinline preload="metadata" poster="assets/video/join.jpg" src="assets/video/join.mp4" aria-label="Two trefoils being joined into the square knot"></video>
+          <figcaption>A trefoil and its mirror image give the square knot. Without the mirror you get the granny knot.</figcaption>
+        </figure>
+        <p>The analysis then shows the joined knot, whose Alexander and Jones polynomials are the products of those of the two parts. Joining with the unknot changes nothing.</p>
+      </section>
+
+      <section id="surface">
+        <h2>Surface</h2>
+        <p>Open with <kbd>Ctrl</kbd> <kbd>5</kbd> and press <em>Build surface</em>. A <strong>Seifert surface</strong> is a two-sided surface whose edge is the knot. It builds in five steps; move between them with the slider or the arrow keys.</p>
+        <figure class="fig">
+          <div class="row">
+            <figure><img class="zoom" src="assets/img/surface-0.webp" width="1000" height="625" alt="The knot laid flat as its diagram" loading="lazy"><figcaption>(a) Step 1: the knot diagram</figcaption></figure>
+            <figure><img class="zoom" src="assets/img/surface-1.webp" width="1000" height="625" alt="Two separate coloured circles" loading="lazy"><figcaption>(b) Step 2: Seifert circles</figcaption></figure>
+            <figure><img class="zoom" src="assets/img/surface-2.webp" width="1000" height="625" alt="The two circles filled with disks" loading="lazy"><figcaption>(c) Step 3: disks, amber and blue sides</figcaption></figure>
+            <figure><img class="zoom" src="assets/img/surface-3.webp" width="1000" height="625" alt="Disks joined by twisted bands" loading="lazy"><figcaption>(d) Step 4: a half-twisted band at every crossing</figcaption></figure>
+          </div>
+          <figcaption>The first four steps.</figcaption>
+        </figure>
+        <figure class="fig">
+          <img class="zoom" src="assets/img/ui-seifert-4.webp" width="1800" height="1075" alt="The finished surface pulled tight, with its genus and Seifert matrix in the panel" loading="lazy">
+          <figcaption>Step 5: pulled tight, as a soap film would be. The panel gives the genus and the Seifert matrix.</figcaption>
+        </figure>
+        <ul>
+          <li><strong>Genus</strong> is the number of "handles". The knot's genus is the smallest over all its surfaces; only the unknot has genus 0.</li>
+          <li><strong>Seifert matrix V</strong> holds linking numbers of loops on the surface. Click an entry to see its loops: green on the surface, pink lifted off the amber side. The signature, determinant and Alexander polynomial follow from it.</li>
+          <li><strong>Made of</strong>: two-coloured cloth, which shows the two sides, or a soap film.</li>
+          <li><strong>How to read this</strong> opens a short explanation of what you see.</li>
+        </ul>
+        <p>For a few knots the program cannot pull the sheet tight; the slider then stops at step 4 and the panel says why.</p>
+      </section>
+
+      <section id="photo">
+        <h2>Photo mode</h2>
+        <p>Press <em>Photo</em> in the view bar. The knot becomes a real object: it falls under its own weight and comes to rest. A list beside the button chooses the scene. Photo always opens on the rope on the garden table.</p>
+        <div class="table-wrap">
+          <table class="wrap-first">
+            <tr><th>Scene</th><th>What you get</th></tr>
+            <tr><td>Hemp rope on a garden table, in the sun</td><td>Twisted hemp rope on dark stone.</td></tr>
+            <tr><td>Shoelace on boards in a meadow, in the sun</td><td>A braided lace on wooden boards.</td></tr>
+            <tr><td>Model train, at night</td><td>A railway shaped like the knot, with a steam train.</td></tr>
+            <tr><td>Model train, by day</td><td>The same railway in daylight.</td></tr>
+          </table>
+        </div>
+        <figure class="fig">
+          <img class="zoom" src="assets/img/ui-photo.webp" width="1800" height="1075" alt="Photo mode in the app, showing the rope on the table and the scene list" loading="lazy">
+          <figcaption>Photo mode with the scene list at the bottom.</figcaption>
+        </figure>
+
+        <h3>Take the rope in your hand</h3>
+        <p>Open <em>Relax</em> and turn on <em>Grab the rope</em>.</p>
+        <ul>
+          <li>Drag the rope. The part you hold is lifted <em>over</em> the other strands.</li>
+          <li>Hold <kbd>Shift</kbd> while grabbing to push it <em>under</em> them.</li>
+          <li><strong>Cut the rope</strong> gives it two free ends. Move them about and tie something new.</li>
+          <li>After every move the ends are joined over the top and the program names the knot you would get.</li>
+          <li><strong>Tie the ends</strong> makes that knot the knot on screen, ready for every other tool.</li>
+        </ul>
+        <div class="fig-pair">
+          <figure class="fig"><img class="zoom" src="assets/img/ui-photo-grab.webp" width="1800" height="1075" alt="Grab the rope switched on" loading="lazy"><figcaption>Held: <em>Cut the rope</em> is available.</figcaption></figure>
+          <figure class="fig"><img class="zoom" src="assets/img/ui-photo-cut.webp" width="1800" height="1075" alt="A cut rope with the Tie the ends button" loading="lazy"><figcaption>Cut: <em>Tie the ends</em> is available.</figcaption></figure>
+        </div>
+
+        <h3>The toy train</h3>
+        <p>The knot becomes one closed track on which every crossing is a bridge. The panel at the top of the picture is the knot's <strong>Gauss code</strong>, live: each bridge is numbered in the order first met, and the train passes each one twice, once over and once under.</p>
+        <figure class="fig">
+          <img class="zoom" src="assets/img/ui-train.webp" width="1800" height="1075" alt="The train scene in the app with numbered bridges and an explanation" loading="lazy">
+          <figcaption>The trefoil as a railway.</figcaption>
+        </figure>
+        <ul>
+          <li><strong>Stop the train</strong> for a sharp picture, or start it again.</li>
+          <li><strong>Cinema</strong> films the knot by itself: from around, from above, from low down, and one bridge up close. Click the view, scroll, or press the button again to stop.</li>
+          <li><strong>Sound</strong> turns on steam, wheels, the whistle and, at night, crickets.</li>
+        </ul>
+        <p>The train takes single knots of up to 13 crossings. A large track can take some seconds to build, and a knot with no workable layout stays a tube with a notice.</p>
+      </section>
+
+      <section id="practice">
+        <h2>Practice</h2>
+        <p><em>Practice</em>, at the top, opens exercises on a knot diagram. Work on the <em>Current knot</em>, a <em>Mystery knot</em> (3 to 8 crossings, named when you finish) or one you <em>Draw</em>.</p>
+        <h3>Tricolouring</h3>
+        <p>An <em>arc</em> runs from one under-crossing to the next. Give each arc one of three colours so that at every crossing the three arcs are <strong>all the same or all different</strong>, using at least two colours.</p>
+        <ul>
+          <li>Pick a colour (keys <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd>), then click arcs. Right-click removes a colour.</li>
+          <li>A crossing that breaks the rule is ringed.</li>
+          <li><em>Hint</em>, <em>It can't be done</em> and <em>Show a solution</em> are there when you need them.</li>
+        </ul>
+        <figure class="fig fig-mid">
+          <img class="zoom" src="assets/img/ui-practice-colour.webp" width="1500" height="947" alt="A correct tricolouring of a seven-crossing diagram" loading="lazy">
+          <figcaption>A solved diagram.</figcaption>
+        </figure>
+        <p>A valid tricolouring proves the knot is not the unknot. Having none proves nothing: the figure-eight knot has none, and it is knotted.</p>
+        <h3>Crossing signs</h3>
+        <p>Look along the over strand. If the under strand passes from your right to your left, the crossing is <strong>+1</strong>, otherwise <strong>−1</strong>. Click crossings to mark them, then <em>Check</em>. Their sum is the writhe of the diagram.</p>
+        <figure class="fig fig-mid">
+          <img class="zoom" src="assets/img/ui-practice-signs.webp" width="1500" height="947" alt="All seven crossings marked correctly" loading="lazy">
+          <figcaption>All seven signs correct.</figcaption>
+        </figure>
+      </section>
+
+      <section id="files">
+        <h2>Saving and exporting</h2>
+        <div class="fig-pair">
+          <figure class="fig"><img src="assets/img/ui-menu-0.webp" width="392" height="477" alt="The File menu" loading="lazy"><figcaption>The File menu.</figcaption></figure>
+          <figure class="fig"><img src="assets/img/ui-menu-1.webp" width="378" height="273" alt="The Help menu" loading="lazy"><figcaption>The Help menu.</figcaption></figure>
+        </div>
+        <ul>
+          <li><strong>Save knot</strong> writes an <code>.aknot</code> file with the knot, its shape and its look.</li>
+          <li><strong>Open</strong> accepts <code>.aknot</code>, and <code>.txt</code> or <code>.csv</code> files of points or formulas. You can also drag a file onto the window, or pick it from <em>Open recent</em>.</li>
+          <li><strong>Export 3D picture</strong> saves what the view shows, Photo mode included, as PNG or JPEG.</li>
+          <li><strong>Export knot diagram</strong> saves a black-on-white drawing as SVG or PNG.</li>
+          <li><strong>Export coordinates</strong> saves the points of the curve as TXT or CSV.</li>
+          <li><strong>Export analysis report</strong> saves the numbers as a text file.</li>
+        </ul>
+        <p>Exact formats are in the <a href="docs.html#exports">docs</a>.</p>
+        <h3>Undo and recovery</h3>
+        <p><kbd>Ctrl</kbd> <kbd>Z</kbd> and <kbd>Ctrl</kbd> <kbd>Y</kbd> undo and redo changes of knot, scramble, relax and style. While the rope is in your hand its moves are not separate steps; undo lays it down afresh.</p>
+        <p>The knot you are working on is saved automatically. If the program closed before you saved, the next start offers to restore it.</p>
+      </section>
+
+      <section id="settings">
+        <h2>Settings</h2>
+        <p><em>Settings</em>, or <kbd>Ctrl</kbd> <kbd>,</kbd>. Changes are saved at once.</p>
+        <div class="fig-pair">
+          <figure class="fig"><img class="zoom" src="assets/img/ui-settings-general.webp" width="630" height="960" alt="The General settings" loading="lazy"><figcaption>General.</figcaption></figure>
+          <figure class="fig"><img class="zoom" src="assets/img/ui-settings-lighting.webp" width="630" height="960" alt="The Lighting settings" loading="lazy"><figcaption>Lighting.</figcaption></figure>
+        </div>
+        <h3>General</h3>
+        <ul>
+          <li><strong>Language</strong>: English or Shqip. Your knot is kept.</li>
+          <li><strong>Theme</strong>: Dark or Light. <strong>Text size</strong>: Small, Normal, Large or Extra large.</li>
+          <li><strong>Window</strong>: full screen, start in full screen, remember window size.</li>
+          <li><strong>Reduce motion</strong> stops the drifting background and the turning knot.</li>
+          <li><strong>Simple graphics mode</strong> is for a computer whose 3D view stays black. It is slower, has no Photo mode and takes effect at the next start.</li>
+          <li><strong>Show frame rate</strong> puts the speed of drawing in a corner of the view.</li>
+          <li><strong>Restore defaults</strong> resets every setting, after asking.</li>
+        </ul>
+        <h3>Lighting</h3>
+        <ul>
+          <li><strong>Presets</strong>: Studio (the full look), Soft, Dramatic, Flat (clear on paper and projectors) and Custom.</li>
+          <li>Individual lights, reflections, brightness, shadows and shadow quality.</li>
+          <li><strong>Photo quality</strong>: Automatic keeps Photo mode smooth on your computer; or choose High, Medium or Low.</li>
+          <li><strong>Floor grid</strong> on or off, and a meter of graphics memory.</li>
+        </ul>
+        <figure class="fig">
+          <img class="zoom" src="assets/img/ui-light.webp" width="1800" height="1075" alt="The program in the light theme" loading="lazy">
+          <figcaption>The light theme.</figcaption>
+        </figure>
+      </section>
+
+      <section id="shortcuts">
+        <h2>Shortcuts</h2>
+        <p>Press <kbd>F1</kbd> or <kbd>?</kbd> in the program to see them.</p>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Keys</th><th>Anywhere</th></tr>
+            <tr><td><kbd>Ctrl</kbd> <kbd>K</kbd></td><td>Find anything</td></tr>
+            <tr><td><kbd>Ctrl</kbd> <kbd>Z</kbd> / <kbd>Ctrl</kbd> <kbd>Y</kbd></td><td>Undo and redo</td></tr>
+            <tr><td><kbd>Ctrl</kbd> <kbd>O</kbd> / <kbd>Ctrl</kbd> <kbd>S</kbd></td><td>Open and save a knot</td></tr>
+            <tr><td><kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>S</kbd></td><td>Save as</td></tr>
+            <tr><td><kbd>Ctrl</kbd> <kbd>E</kbd> / <kbd>Ctrl</kbd> <kbd>D</kbd></td><td>Export the picture and the diagram</td></tr>
+            <tr><td><kbd>Ctrl</kbd> <kbd>,</kbd></td><td>Settings</td></tr>
+            <tr><td><kbd>F11</kbd> / <kbd>Esc</kbd></td><td>Full screen on and off</td></tr>
+            <tr><td><kbd>F1</kbd> / <kbd>?</kbd></td><td>The list of shortcuts</td></tr>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Keys</th><th>Tools</th></tr>
+            <tr><td><kbd>Ctrl</kbd> <kbd>1</kbd> … <kbd>5</kbd></td><td>Style, Relax, Unknot, Join, Surface</td></tr>
+            <tr><td><kbd>Space</kbd></td><td>Play or pause what the open tool does</td></tr>
+            <tr><td><kbd>←</kbd> / <kbd>→</kbd></td><td>Step back and forward in unknotting and surface</td></tr>
+            <tr><td><kbd>Ctrl</kbd> <kbd>Enter</kbd></td><td>Apply a custom curve</td></tr>
+            <tr><td><kbd>Esc</kbd></td><td>Let go of the rope, or pause relaxing or unknotting</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <section id="trouble">
+        <h2>Troubleshooting</h2>
+        <div class="table-wrap">
+          <table class="wrap-first">
+            <tr><th>Problem</th><th>What to do</th></tr>
+            <tr><td>"Windows protected your PC"</td><td>Choose <em>More info</em>, then <em>Run anyway</em>.</td></tr>
+            <tr><td>The 3D view stays black, or says it needs OpenGL 3.3</td><td>Update the graphics driver. If that does not help, turn on <em>Settings &gt; Simple graphics mode</em> and restart.</td></tr>
+            <tr><td>Photo mode is slow</td><td><em>Settings &gt; Lighting &gt; Photo quality</em>: choose Automatic or Low.</td></tr>
+            <tr><td>"…needs a single closed curve"</td><td>DNA, Celtic Armor and some torus links have several loops. Choose a single knot.</td></tr>
+            <tr><td>No diagram can be made</td><td>Relax the knot first: it often clears up a crowded curve.</td></tr>
+            <tr><td>A button is greyed out</td><td>Point at it. The tooltip says why.</td></tr>
+            <tr><td>Reporting a bug</td><td>Use <em>Help &gt; Copy diagnostic information</em> and paste it into a <a href="https://github.com/Albionn1/AKSIOMA-Knots/issues" rel="noopener">new issue</a>.</td></tr>
+          </table>
+        </div>
+      </section>
+
+      <section id="glossary">
+        <h2>Glossary</h2>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Word</th><th>Meaning</th></tr>
+            <tr><td>Knot</td><td>A closed loop in space that does not cross itself.</td></tr>
+            <tr><td>Unknot</td><td>A loop that can be deformed into a plain circle.</td></tr>
+            <tr><td>Link</td><td>Several closed loops, possibly tangled together.</td></tr>
+            <tr><td>Diagram</td><td>A flat picture of a knot that shows which strand goes over at each crossing.</td></tr>
+            <tr><td>Crossing number</td><td>The smallest number of crossings in any diagram of the knot.</td></tr>
+            <tr><td>Unknotting number</td><td>The fewest crossing changes that turn the knot into the unknot.</td></tr>
+            <tr><td>Reidemeister moves</td><td>Three local changes of a diagram that never change the knot.</td></tr>
+            <tr><td>Mirror image</td><td>The reflected knot. A knot is <em>chiral</em> if it differs from its mirror image.</td></tr>
+            <tr><td>Amphicheiral</td><td>Equal to its mirror image, like the figure-eight knot.</td></tr>
+            <tr><td>Alternating</td><td>Has a diagram where the crossings go over, under, over, under all the way round.</td></tr>
+            <tr><td>Prime knot</td><td>A knot that is not a connected sum of two simpler knots.</td></tr>
+            <tr><td>Torus knot</td><td>A knot that lies on the surface of a doughnut.</td></tr>
+            <tr><td>Gauss code</td><td>The crossings in the order you meet them walking along the knot, each marked over or under.</td></tr>
+            <tr><td>Genus</td><td>The smallest number of handles of a surface whose edge is the knot.</td></tr>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="foot">
+    <div>
+      <p>AKSIOMA Knots, Copyright © 2026 AKSIOMA, GNU GPL v3. <a href="knots.html">Overview</a> · <a href="docs.html">Docs</a> · <a href="../index.html">AKSIOMA home</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/knots.js"></script>
+</body>
+</html>
